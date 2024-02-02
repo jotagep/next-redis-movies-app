@@ -1,20 +1,30 @@
-import type { Config } from "tailwindcss";
+const defaultTheme = require('tailwindcss/defaultTheme')
 
-const config: Config = {
-  content: [
-    "./pages/**/*.{js,ts,jsx,tsx,mdx}",
-    "./components/**/*.{js,ts,jsx,tsx,mdx}",
-    "./app/**/*.{js,ts,jsx,tsx,mdx}",
+module.exports = {
+  purge: [
+    'pages/**/*.{js,jsx,ts,tsx}',
+    'components/**/*.{js,jsx,ts,tsx}',
+    'features/**/*.{js,jsx,ts,tsx}',
   ],
   theme: {
+    fontFamily: {
+      lead: ['var(--font-bebas-neue)', 'Arial', 'sans-serif'],
+      sans: ['var(--font-roboto)', ...defaultTheme.fontFamily.sans],
+    },
     extend: {
-      backgroundImage: {
-        "gradient-radial": "radial-gradient(var(--tw-gradient-stops))",
-        "gradient-conic":
-          "conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))",
+      colors: {
+        darkgray: '#181818',
+        netflix: '#e50914',
+      },
+      fontSize: {
+        sm: '0.875rem',
+        base: '1.125rem',
+        lg: '1.25rem',
+        xl: '1.5rem',
+        title: '5.5rem',
       },
     },
   },
+  variants: {},
   plugins: [],
-};
-export default config;
+}

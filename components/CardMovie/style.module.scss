@@ -1,0 +1,74 @@
+.card {
+  position: relative;
+  display: block;
+  padding-top: 62.5%;
+  overflow: hidden;
+
+  &::before {
+    background: linear-gradient(to bottom, transparent, rgba(0, 0, 0, 0.8));
+    content: '';
+    display: block;
+    height: 100%;
+    left: 0;
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    z-index: 2;
+  }
+
+  .image {
+    position: absolute;
+    height: 100%;
+    top: 0;
+    left: 0;
+    object-fit: cover;
+    border-radius: 4px;
+    transition: transform 0.3s ease;
+    will-change: transform;
+  }
+
+  .rating {
+    display: none;
+    font-size: theme('fontSize.sm');
+    position: absolute;
+    top: 6px;
+    left: 6px;
+    z-index: 3;
+  }
+
+  .favorite {
+    display: none;
+    position: absolute;
+    top: 6px;
+    right: 6px;
+    z-index: 3;
+    width: 36px;
+    height: 36px;
+    padding: 8px;
+    border-radius: 4px;
+    background-color: rgba(0, 0, 0, 0.8);
+    transition: background-color 0.25s ease;
+  }
+
+  &:hover {
+    &::before {
+      background: linear-gradient(
+        to bottom,
+        rgba(0, 0, 0, 0.4),
+        rgba(0, 0, 0, 0.9)
+      );
+    }
+    .image {
+      transform: scale3d(1.1, 1.1, 1);
+    }
+    .rating {
+      display: block;
+    }
+    .favorite {
+      display: block;
+      &:hover {
+        background-color: theme('colors.red.600');
+      }
+    }
+  }
+}

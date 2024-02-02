@@ -1,0 +1,22 @@
+.poster {
+  max-width: 340px;
+  border-radius: 12px;
+}
+
+.favorite {
+  position: absolute;
+  top: 2rem;
+  right: 4rem;
+  width: 46px;
+  height: 46px;
+  padding: 8px;
+  border: 1px solid theme('colors.white');
+  border-radius: 6px;
+  transition: border-color 0.25s ease, background-color 0.25s ease;
+
+  &:hover {
+    cursor: pointer;
+    background-color: theme('colors.red.600');
+    border-color: theme('colors.red.600');
+  }
+}
