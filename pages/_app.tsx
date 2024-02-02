@@ -27,8 +27,8 @@ export default function App({ Component, pageProps }: AppProps) {
   return (
     <main className={className}>
       <Head>
-        <title>Redflix</title>
-        <meta name="description" content="Redflix" />
+        <title>Verflix</title>
+        <meta name="description" content="Verflix" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.ico" />
       </Head>

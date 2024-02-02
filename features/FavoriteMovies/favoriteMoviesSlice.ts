@@ -8,11 +8,11 @@ interface FavoriteMoviesState {
 }
 
 const getFavorites = (): FavoriteMoviesState => {
-  const favorites = global.localStorage?.getItem('redflix_favorites')
+  const favorites = global.localStorage?.getItem('verflix_favorites')
   return favorites ? JSON.parse(favorites) : { movies: {} }
 }
 const setFavorites = (favorites: FavoriteMoviesState) => {
-  global.localStorage?.setItem('redflix_favorites', JSON.stringify(favorites))
+  global.localStorage?.setItem('verflix_favorites', JSON.stringify(favorites))
 }
 
 const initialState: FavoriteMoviesState = {

@@ -17,11 +17,7 @@ module.exports = {
         netflix: '#e50914',
       },
       fontSize: {
-        sm: '0.875rem',
-        base: '1.125rem',
-        lg: '1.25rem',
-        xl: '1.5rem',
-        title: '5.5rem',
+        title: '4.5rem',
       },
     },
   },

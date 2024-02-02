@@ -24,7 +24,7 @@ export default function Topbar() {
           <ul className="h-full flex items-center text-lg justify-between">
             <li>
               <Link href="/">
-                <span className={style.title}>Redflix</span>
+                <span className={style.title}>Verflix</span>
               </Link>
             </li>
             <li>
