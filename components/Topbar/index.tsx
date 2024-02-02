@@ -21,7 +21,7 @@ export default function Topbar() {
     >
       <Container className="h-full">
         <nav className="h-full">
-          <ul className="h-full flex items-center text-lg justify-between">
+          <ul className="h-full flex items-center justify-between">
             <li>
               <Link href="/">
                 <span className={style.title}>Verflix</span>

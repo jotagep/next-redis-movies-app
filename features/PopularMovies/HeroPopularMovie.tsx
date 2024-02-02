@@ -13,14 +13,19 @@ export default function HeroPopularMovie() {
     (last, next) => last?.id === next?.id
   )
 
-  if (!movie) return <Spinner />
+  if (!movie)
+    return (
+      <div className="flex items-center justify-center min-h-screen w-full">
+        <Spinner />
+      </div>
+    )
 
   return (
     <section>
       <HeroMovie classContainer="w-1/2" movie={movie}>
         <span className="mr-4 text-xl">Most popular at the moment</span>
         <h2 className="text-title font-lead">{movie.title}</h2>
-        <p className="text-lg mb-6">{movie.overview}</p>
+        <p className="mb-6">{movie.overview}</p>
         <div className="flex items-center">
           <ButtonLink to={`/movies/${movie.id}`}>See More</ButtonLink>
           <FavoriteBox

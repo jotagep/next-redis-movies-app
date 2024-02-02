@@ -30,7 +30,7 @@ export default function GridMovie({
               <CardMovie movie={item} />
               <Link
                 href={`/movies/${item.id}`}
-                className="flex justify-center text-lg text-center mt-2"
+                className="flex justify-center text-center mt-2"
               >
                 {item.title}
               </Link>

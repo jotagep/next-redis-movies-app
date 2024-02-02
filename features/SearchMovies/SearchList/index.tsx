@@ -41,7 +41,7 @@ export default function SearchList() {
                   src={getImage(item.poster_path, 'w500')}
                   alt={`Poster ${item.title}`}
                 />
-                <span className="font-bold text-lg ml-8">{item.title}</span>
+                <span className="font-bold ml-8">{item.title}</span>
               </div>
               <RatingBox
                 className="text-white w-10 h-10"
