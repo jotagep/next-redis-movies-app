@@ -7,6 +7,16 @@ const redisConfig: RedisConfigNodejs = {
 
 const redis = new Redis(redisConfig)
 
+export async function validateRedisConnection() {
+  try {
+    await redis.ping()
+    return true
+  } catch (error) {
+    console.error('Error conectando a Redis:', (error as Error).message)
+    return false
+  }
+}
+
 export const MAX_AGE = `300` // 5 minutes
 export const EXPIRY_MS = `PX` // milliseconds
 
