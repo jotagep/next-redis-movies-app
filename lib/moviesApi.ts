@@ -17,6 +17,10 @@ export async function fetchData<T>(query: string): Promise<T> {
 }
 
 export const getImage = (url: string, size: 'original' | 'w500' = 'w500') => {
+  if (!url) {
+    return '/no-image.svg'
+  }
+
   return `https://image.tmdb.org/t/p/${size}${url}`
 }
 

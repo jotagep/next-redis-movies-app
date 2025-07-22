@@ -1,8 +1,9 @@
 import type { NextApiRequest, NextApiResponse } from 'next'
-import type { MovieInfo } from '@/types/movies'
 
 import { getCastMovie, getDetailMovie, getRelatedMovies } from '@/lib/moviesApi'
 import redis, { validateRedisConnection } from '@/lib/redis'
+
+import type { MovieInfo } from '@/types/movies'
 
 export default async function handler(
   req: NextApiRequest,

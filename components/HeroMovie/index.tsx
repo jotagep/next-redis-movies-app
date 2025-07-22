@@ -1,9 +1,11 @@
 import React from 'react'
-import Image from 'next/image'
-import { getImage } from '@/lib/moviesApi'
 
 import Container from '@/components/Container'
+import MovieImage from '@/components/MovieImage'
 import Spinner from '@/components/Spinner'
+
+import { getImage } from '@/lib/moviesApi'
+
 import { Movie } from '@/types/movies'
 
 import style from './style.module.scss'
@@ -25,7 +27,7 @@ export default function HeroMovie({
 
   return (
     <div className={`${style.hero} pt-24 flex items-center h-screen relative`}>
-      <Image
+      <MovieImage
         fill={true}
         sizes="100vw"
         src={getImage(movie.backdrop_path, 'original')}

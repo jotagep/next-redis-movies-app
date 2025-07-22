@@ -1,8 +1,9 @@
 import React from 'react'
 import Link from 'next/link'
 
-import Container from '@/components/Container'
 import CardMovie from '@/components/CardMovie'
+import Container from '@/components/Container'
+
 import { Movie } from '@/types/movies'
 
 type Props = {

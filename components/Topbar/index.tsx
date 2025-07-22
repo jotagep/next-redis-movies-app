@@ -1,10 +1,12 @@
 import React from 'react'
 import Link from 'next/link'
-import useScrollY from '@/hooks/useScrollY'
 
-import Container from '@/components/Container'
 import ButtonLink from '@/components/ButtonLink'
+import Container from '@/components/Container'
+
 import SearchBar from '@/features/SearchMovies/SearchBar'
+
+import useScrollY from '@/hooks/useScrollY'
 
 import style from './style.module.scss'
 
