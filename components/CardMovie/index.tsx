@@ -1,10 +1,10 @@
 import React from 'react'
-import Image from 'next/image'
 import Link from 'next/link'
 import { getImage } from '@/lib/moviesApi'
 
 import RatingBox from '@/components/RatingBox'
 import FavoriteBox from '@/features/FavoriteMovies/FavoriteBox'
+import MovieImage from '@/components/MovieImage'
 import Spinner from '@/components/Spinner'
 import type { Movie } from '@/types/movies'
 
@@ -23,7 +23,7 @@ export default function CardMovie({ movie }: Props) {
       <RatingBox className={style.rating} rate={movie.vote_average} />
       <FavoriteBox movie={movie} className={style.favorite} />
       {movie.backdrop_path ? (
-        <Image
+        <MovieImage
           fill={true}
           sizes="(max-width: 768px) 100vw, 25vw"
           src={getImage(movie.backdrop_path, 'w500')}
@@ -31,7 +31,7 @@ export default function CardMovie({ movie }: Props) {
           className={style.image}
         />
       ) : (
-        <Image
+        <MovieImage
           fill={true}
           sizes="(max-width: 768px) 100vw, 25vw"
           src={getImage(movie.poster_path, 'w500')}

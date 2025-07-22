@@ -1,8 +1,8 @@
 import React from 'react'
-import Image from 'next/image'
 import { getImage } from '@/lib/moviesApi'
 
 import HeroMovie from '@/components/HeroMovie'
+import MovieImage from '@/components/MovieImage'
 import FavoriteBox from '@/features/FavoriteMovies/FavoriteBox'
 import { MovieInfo } from '@/types/movies'
 import { getBudget } from '@/utils'
@@ -19,7 +19,7 @@ export default function HeroDetail({ movie }: Props) {
       <HeroMovie classContainer="w-full -mt-32 relative" movie={movie}>
         <div className="flex rounded-lg bg-darkgray bg-opacity-75">
           <div className="flex-initial relative">
-            <Image
+            <MovieImage
               className={style.poster}
               width={340}
               height={510}
