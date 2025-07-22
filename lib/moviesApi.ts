@@ -3,7 +3,7 @@ import type {
   IResponse,
   IResponseCast,
   Movie,
-  MovieDetailed,
+  MovieDetailed
 } from '@/types/movies'
 
 const API_KEY = process.env.NEXT_PUBLIC_MOVIES_API_KEY

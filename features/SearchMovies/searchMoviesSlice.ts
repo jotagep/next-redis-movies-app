@@ -15,7 +15,7 @@ const initialState: SearchMovieState = {
   movies: [],
   isLoading: false,
   error: null,
-  isFocused: false,
+  isFocused: false
 }
 
 function startLoading(state: SearchMovieState) {
@@ -52,8 +52,8 @@ const searchMovies = createSlice({
       state.movies = payload
       state.error = null
     },
-    getSearchMovieFailure: loadingFailed,
-  },
+    getSearchMovieFailure: loadingFailed
+  }
 })
 
 export const {
@@ -61,7 +61,7 @@ export const {
   setFocused,
   setEmptyMovies,
   getSearchMovieSuccess,
-  getSearchMovieFailure,
+  getSearchMovieFailure
 } = searchMovies.actions
 
 export default searchMovies.reducer

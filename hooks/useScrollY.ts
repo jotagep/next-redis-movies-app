@@ -10,7 +10,7 @@ export type ScrollY = {
 const useScrollY = () => {
   const [scrollPosition, setScrollPosition] = useState<ScrollY>({
     y: 0,
-    direction: null,
+    direction: null
   })
 
   useEffect(() => {
@@ -26,7 +26,7 @@ const useScrollY = () => {
         window.requestAnimationFrame(function () {
           setScrollPosition({
             y: lastKnownScrollPosition,
-            direction: directionKnown,
+            direction: directionKnown
           })
           ticking = false
         })

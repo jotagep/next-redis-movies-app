@@ -14,7 +14,7 @@ type Props = {
 export default function GridMovie({
   movies,
   title = '',
-  className = '',
+  className = ''
 }: Props) {
   if (!movies) {
     return <span>Loading...</span>

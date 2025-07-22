@@ -17,7 +17,7 @@ type Props = {
 export default function HeroMovie({
   movie,
   children,
-  classContainer = '',
+  classContainer = ''
 }: Props) {
   if (!movie) {
     return <Spinner />

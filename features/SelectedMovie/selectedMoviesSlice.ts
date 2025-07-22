@@ -15,7 +15,7 @@ interface SelectedMoviesState {
 const initialState: SelectedMoviesState = {
   movies: {},
   isLoading: false,
-  error: null,
+  error: null
 }
 
 function startLoading(state: SelectedMoviesState) {
@@ -43,14 +43,14 @@ const selectedMovies = createSlice({
       state.movies = { ...state.movies, [payload.id]: payload }
       state.error = null
     },
-    getSelectedMovieFailure: loadingFailed,
-  },
+    getSelectedMovieFailure: loadingFailed
+  }
 })
 
 export const {
   getSelectedMovieStart,
   getSelectedMovieSuccess,
-  getSelectedMovieFailure,
+  getSelectedMovieFailure
 } = selectedMovies.actions
 
 export default selectedMovies.reducer
