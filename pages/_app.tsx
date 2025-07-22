@@ -1,11 +1,14 @@
-import Head from 'next/head'
-import type { AppProps } from 'next/app'
 import { Provider } from 'react-redux'
-import { Roboto, Bebas_Neue } from 'next/font/google'
+import type { AppProps } from 'next/app'
+import { Bebas_Neue, Roboto } from 'next/font/google'
+import Head from 'next/head'
 
 import Topbar from '@/components/Topbar'
+
 import SearchList from '@/features/SearchMovies/SearchList'
+
 import store from '@/store/store'
+
 import '@/styles/globals.scss'
 
 const roboto = Roboto({

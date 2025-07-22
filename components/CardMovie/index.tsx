@@ -1,11 +1,14 @@
 import React from 'react'
 import Link from 'next/link'
+
+import MovieImage from '@/components/MovieImage'
+import RatingBox from '@/components/RatingBox'
+import Spinner from '@/components/Spinner'
+
+import FavoriteBox from '@/features/FavoriteMovies/FavoriteBox'
+
 import { getImage } from '@/lib/moviesApi'
 
-import RatingBox from '@/components/RatingBox'
-import FavoriteBox from '@/features/FavoriteMovies/FavoriteBox'
-import MovieImage from '@/components/MovieImage'
-import Spinner from '@/components/Spinner'
 import type { Movie } from '@/types/movies'
 
 import style from './style.module.scss'

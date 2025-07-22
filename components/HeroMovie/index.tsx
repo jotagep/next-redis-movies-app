@@ -1,9 +1,11 @@
 import React from 'react'
-import { getImage } from '@/lib/moviesApi'
 
 import Container from '@/components/Container'
 import MovieImage from '@/components/MovieImage'
 import Spinner from '@/components/Spinner'
+
+import { getImage } from '@/lib/moviesApi'
+
 import { Movie } from '@/types/movies'
 
 import style from './style.module.scss'
