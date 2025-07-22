@@ -6,7 +6,7 @@ import redis, { validateRedisConnection } from '@/lib/redis'
 
 export default async function handler(
   req: NextApiRequest,
-  res: NextApiResponse<MovieInfo | void>
+  res: NextApiResponse<MovieInfo | void>,
 ) {
   const { id } = req.query as { id: string }
   const idNumber = parseInt(id)
@@ -16,14 +16,15 @@ export default async function handler(
   }
 
   let cachedMovie: MovieInfo | null = null
+  let isValidRedis = false
   try {
-    const isValid = await validateRedisConnection()
-    if (!isValid) {
+    isValidRedis = await validateRedisConnection()
+    if (!isValidRedis) {
       throw new Error('Redis connection failed')
     }
     cachedMovie = await redis.get<MovieInfo>(id)
   } catch (error) {
-    console.log('Error getting cached movie.', (error as Error).message)
+    console.log('No redis connection.', (error as Error).message)
   }
 
   if (cachedMovie) {
@@ -35,12 +36,16 @@ export default async function handler(
     getCastMovie(idNumber),
     getRelatedMovies(idNumber),
   ])
+
   const movieInfo: MovieInfo = {
     ...movie,
     cast: cast,
-    related_movies: related.slice(0, 4),
+    related_movies: related?.slice(0, 4) || [],
   }
 
-  redis.set(id, movieInfo, { ex: 60 * 60 * 24 })
+  if (isValidRedis) {
+    redis.set(id, movieInfo, { ex: 60 * 60 * 24 })
+  }
+
   res.status(200).json(movieInfo)
 }
