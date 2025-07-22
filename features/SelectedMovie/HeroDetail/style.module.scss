@@ -12,7 +12,9 @@
   padding: 8px;
   border: 1px solid theme('colors.white');
   border-radius: 6px;
-  transition: border-color 0.25s ease, background-color 0.25s ease;
+  transition:
+    border-color 0.25s ease,
+    background-color 0.25s ease;
 
   &:hover {
     cursor: pointer;

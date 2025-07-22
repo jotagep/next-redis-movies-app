@@ -9,7 +9,7 @@ const rootReducer = combineReducers({
   popularMovies: popularMoviesSlice,
   favoriteMovies: favoriteMoviesSlice,
   selectedMovie: selectedMovieSlice,
-  searchMovie: searchMovieSlice,
+  searchMovie: searchMovieSlice
 })
 
 export type RootState = ReturnType<typeof rootReducer>

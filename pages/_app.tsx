@@ -12,13 +12,13 @@ const roboto = Roboto({
   display: 'swap',
   subsets: ['latin'],
   variable: '--font-roboto',
-  weight: ['400', '700'],
+  weight: ['400', '700']
 })
 const bebasNeue = Bebas_Neue({
   display: 'swap',
   subsets: ['latin'],
   variable: '--font-bebas-neue',
-  weight: '400',
+  weight: '400'
 })
 
 const className = `bg-darkgray min-h-screen font-sans ${roboto.variable} ${bebasNeue.variable}`

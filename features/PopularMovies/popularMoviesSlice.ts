@@ -15,7 +15,7 @@ const initialState: PopularMoviesState = {
   movies: [],
   isLoading: false,
   error: null,
-  pagesLoaded: 0,
+  pagesLoaded: 0
 }
 
 function startLoading(state: PopularMoviesState) {
@@ -44,14 +44,14 @@ const moviePage = createSlice({
       state.pagesLoaded = state.pagesLoaded + 1
       state.error = null
     },
-    getPopularMoviesFailure: loadingFailed,
-  },
+    getPopularMoviesFailure: loadingFailed
+  }
 })
 
 export const {
   getPopularMoviesStart,
   getPopularMoviesSuccess,
-  getPopularMoviesFailure,
+  getPopularMoviesFailure
 } = moviePage.actions
 
 export default moviePage.reducer

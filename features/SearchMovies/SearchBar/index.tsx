@@ -4,7 +4,7 @@ import { useAppDispatch } from '@/store/store'
 import {
   fetchSearchMovie,
   setEmptyMovies,
-  setFocused,
+  setFocused
 } from '../searchMoviesSlice'
 import SearchIcon from '../SearchIcon'
 

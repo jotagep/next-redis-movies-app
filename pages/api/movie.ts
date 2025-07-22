@@ -6,7 +6,7 @@ import redis, { validateRedisConnection } from '@/lib/redis'
 
 export default async function handler(
   req: NextApiRequest,
-  res: NextApiResponse<MovieInfo | void>,
+  res: NextApiResponse<MovieInfo | void>
 ) {
   const { id } = req.query as { id: string }
   const idNumber = parseInt(id)
@@ -34,13 +34,13 @@ export default async function handler(
   const [movie, cast, related] = await Promise.all([
     getDetailMovie(idNumber),
     getCastMovie(idNumber),
-    getRelatedMovies(idNumber),
+    getRelatedMovies(idNumber)
   ])
 
   const movieInfo: MovieInfo = {
     ...movie,
     cast: cast,
-    related_movies: related?.slice(0, 4) || [],
+    related_movies: related?.slice(0, 4) || []
   }
 
   if (isValidRedis) {

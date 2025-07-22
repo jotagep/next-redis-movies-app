@@ -16,7 +16,7 @@ const setFavorites = (favorites: FavoriteMoviesState) => {
 }
 
 const initialState: FavoriteMoviesState = {
-  movies: getFavorites().movies,
+  movies: getFavorites().movies
 }
 
 const favoritePage = createSlice({
@@ -33,8 +33,8 @@ const favoritePage = createSlice({
         state.movies = { ...state.movies, [payload.id]: payload }
       }
       setFavorites(state)
-    },
-  },
+    }
+  }
 })
 
 export const { toggleFavorite } = favoritePage.actions

@@ -2,7 +2,7 @@ import { Redis, RedisConfigNodejs } from '@upstash/redis'
 
 const redisConfig: RedisConfigNodejs = {
   url: process.env.UPSTASH_REDIS_REST_URL as string,
-  token: process.env.UPSTASH_REDIS_REST_TOKEN as string,
+  token: process.env.UPSTASH_REDIS_REST_TOKEN as string
 }
 
 const redis = new Redis(redisConfig)
