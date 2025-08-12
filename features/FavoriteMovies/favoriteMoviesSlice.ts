@@ -1,4 +1,5 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit'
+
 import type { Movie } from '@/types/movies'
 
 interface FavoriteMoviesState {
@@ -19,7 +20,7 @@ const initialState: FavoriteMoviesState = {
   movies: getFavorites().movies
 }
 
-const favoritePage = createSlice({
+const favoriteMoviesSlice = createSlice({
   name: 'favoriteMovies',
   initialState: initialState,
   reducers: {
@@ -37,6 +38,6 @@ const favoritePage = createSlice({
   }
 })
 
-export const { toggleFavorite } = favoritePage.actions
+export const { toggleFavorite } = favoriteMoviesSlice.actions
 
-export default favoritePage.reducer
+export default favoriteMoviesSlice.reducer

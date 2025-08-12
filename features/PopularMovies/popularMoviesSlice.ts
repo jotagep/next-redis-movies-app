@@ -1,8 +1,10 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit'
 
 import { getPopularMovies } from '@/lib/moviesApi'
-import type { Movie } from '@/types/movies'
+
 import type { AppThunk } from '@/store/store'
+
+import type { Movie } from '@/types/movies'
 
 interface PopularMoviesState {
   movies: Movie[]
@@ -30,7 +32,7 @@ function loadingFailed(
   state.error = payload
 }
 
-const moviePage = createSlice({
+const popularMoviesSlice = createSlice({
   name: 'popularMovies',
   initialState: initialState,
   reducers: {
@@ -52,9 +54,9 @@ export const {
   getPopularMoviesStart,
   getPopularMoviesSuccess,
   getPopularMoviesFailure
-} = moviePage.actions
+} = popularMoviesSlice.actions
 
-export default moviePage.reducer
+export default popularMoviesSlice.reducer
 
 export const fetchPopularMovies =
   (page: number = 1): AppThunk =>

@@ -1,7 +1,9 @@
-import React, { useState, useEffect } from 'react'
+import React, { useEffect, useState } from 'react'
 import { shallowEqual, useSelector } from 'react-redux'
+
 import Container from '@/components/Container'
 import GridMovie from '@/components/GridMovie'
+
 import type { RootState } from '@/store/rootReducer'
 
 export default function FavoriteMoviesPage() {

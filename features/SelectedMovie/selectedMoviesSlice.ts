@@ -1,7 +1,9 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit'
 
 import { fetchData } from '@/lib/moviesApi'
+
 import type { AppThunk } from '@/store/store'
+
 import { MovieInfo } from '@/types/movies'
 
 interface SelectedMoviesState {
@@ -30,7 +32,7 @@ function loadingFailed(
   state.error = payload
 }
 
-const selectedMovies = createSlice({
+const selectedMoviesSlice = createSlice({
   name: 'selectedMovies',
   initialState: initialState,
   reducers: {
@@ -51,9 +53,9 @@ export const {
   getSelectedMovieStart,
   getSelectedMovieSuccess,
   getSelectedMovieFailure
-} = selectedMovies.actions
+} = selectedMoviesSlice.actions
 
-export default selectedMovies.reducer
+export default selectedMoviesSlice.reducer
 
 export const fetchDetailMovie =
   (id: number): AppThunk =>

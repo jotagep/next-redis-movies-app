@@ -1,12 +1,14 @@
 import React from 'react'
 import { useDebouncedCallback } from 'use-debounce'
+
 import { useAppDispatch } from '@/store/store'
+
+import SearchIcon from '../SearchIcon'
 import {
   fetchSearchMovie,
   setEmptyMovies,
   setFocused
 } from '../searchMoviesSlice'
-import SearchIcon from '../SearchIcon'
 
 import style from './style.module.scss'
 

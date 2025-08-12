@@ -1,10 +1,14 @@
 import React from 'react'
-import { getImage } from '@/lib/moviesApi'
 
 import HeroMovie from '@/components/HeroMovie'
 import MovieImage from '@/components/MovieImage'
+
 import FavoriteBox from '@/features/FavoriteMovies/FavoriteBox'
+
+import { getImage } from '@/lib/moviesApi'
+
 import { MovieInfo } from '@/types/movies'
+
 import { getBudget } from '@/utils'
 
 import style from './style.module.scss'

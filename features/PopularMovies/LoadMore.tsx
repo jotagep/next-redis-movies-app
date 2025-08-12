@@ -1,10 +1,12 @@
-import React, { useRef, useEffect, useCallback } from 'react'
-import { useSelector, shallowEqual } from 'react-redux'
-import { fetchPopularMovies } from './popularMoviesSlice'
+import React, { useCallback, useEffect, useRef } from 'react'
+import { shallowEqual, useSelector } from 'react-redux'
 
 import Spinner from '@/components/Spinner'
+
 import type { RootState } from '@/store/rootReducer'
 import { useAppDispatch } from '@/store/store'
+
+import { fetchPopularMovies } from './popularMoviesSlice'
 
 export default function LoadMore() {
   const { isLoading, pagesLoaded } = useSelector(

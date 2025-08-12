@@ -1,12 +1,14 @@
 import React, { useEffect } from 'react'
 import { useSelector } from 'react-redux'
+
+import Spinner from '@/components/Spinner'
+
 import { RootState } from '@/store/rootReducer'
 import { useAppDispatch } from '@/store/store'
 
-import Spinner from '@/components/Spinner'
+import GridRelatedMovies from './GridRelatedMovies'
 import HeroDetail from './HeroDetail'
 import { fetchDetailMovie } from './selectedMoviesSlice'
-import GridRelatedMovies from './GridRelatedMovies'
 
 export default function SelectedMoviePage({ id }: { id: string }) {
   const { movies, isLoading } = useSelector(

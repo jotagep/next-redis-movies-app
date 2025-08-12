@@ -1,11 +1,13 @@
 import React, { useEffect } from 'react'
-import Link from 'next/link'
 import { shallowEqual, useSelector } from 'react-redux'
-import type { RootState } from '@/store/rootReducer'
+import Link from 'next/link'
 
 import MovieImage from '@/components/MovieImage'
 import RatingBox from '@/components/RatingBox'
+
 import { getImage } from '@/lib/moviesApi'
+
+import type { RootState } from '@/store/rootReducer'
 
 import style from './style.module.scss'
 

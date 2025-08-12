@@ -1,6 +1,7 @@
 import React from 'react'
 
 import GridMovie from '@/components/GridMovie'
+
 import { Movie } from '@/types/movies'
 
 type Props = {

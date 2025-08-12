@@ -1,8 +1,9 @@
 import React from 'react'
 import { useSelector } from 'react-redux'
-import type { RootState } from '@/store/rootReducer'
 
 import GridMovie from '@/components/GridMovie'
+
+import type { RootState } from '@/store/rootReducer'
 
 export default function GridPopularMovies() {
   const movies = useSelector(

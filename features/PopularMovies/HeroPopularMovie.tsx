@@ -1,11 +1,13 @@
 import React from 'react'
 import { useSelector } from 'react-redux'
-import type { RootState } from '@/store/rootReducer'
 
-import HeroMovie from '@/components/HeroMovie'
 import ButtonLink from '@/components/ButtonLink'
+import HeroMovie from '@/components/HeroMovie'
 import Spinner from '@/components/Spinner'
+
 import FavoriteBox from '@/features/FavoriteMovies/FavoriteBox'
+
+import type { RootState } from '@/store/rootReducer'
 
 export default function HeroPopularMovie() {
   const movie = useSelector(

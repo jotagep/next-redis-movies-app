@@ -1,7 +1,9 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit'
 
 import { getSearchMovie } from '@/lib/moviesApi'
+
 import { AppThunk } from '@/store/store'
+
 import { Movie } from '@/types/movies'
 
 interface SearchMovieState {
@@ -30,7 +32,7 @@ function loadingFailed(
   state.error = payload
 }
 
-const searchMovies = createSlice({
+const searchMoviesSlice = createSlice({
   name: 'searchMovies',
   initialState: initialState,
   reducers: {
@@ -62,9 +64,9 @@ export const {
   setEmptyMovies,
   getSearchMovieSuccess,
   getSearchMovieFailure
-} = searchMovies.actions
+} = searchMoviesSlice.actions
 
-export default searchMovies.reducer
+export default searchMoviesSlice.reducer
 
 export const fetchSearchMovie =
   (text: string): AppThunk =>

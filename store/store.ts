@@ -1,5 +1,5 @@
-import { configureStore, Action, ThunkAction } from '@reduxjs/toolkit'
 import { useDispatch } from 'react-redux'
+import { Action, configureStore, ThunkAction } from '@reduxjs/toolkit'
 
 import rootReducer, { RootState } from './rootReducer'
 
