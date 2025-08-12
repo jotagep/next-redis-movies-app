@@ -2,11 +2,11 @@ import { createSlice, PayloadAction } from '@reduxjs/toolkit'
 
 import { getPopularMovies } from '@/lib/moviesApi'
 
-import type { AppThunk } from '@/store/store'
+import { AppThunk } from '@/store/store'
 
 import type { Movie } from '@/types/movies'
 
-interface PopularMoviesState {
+export interface PopularMoviesState {
   movies: Movie[]
   isLoading: boolean
   error: string | null
