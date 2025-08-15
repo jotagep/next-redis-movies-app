@@ -3,7 +3,6 @@ import { render, screen } from '@testing-library/react'
 
 import ButtonLink from '@/components/ButtonLink'
 
-// Mock Next.js router
 const mockUseRouter = jest.fn()
 
 jest.mock('next/router', () => ({

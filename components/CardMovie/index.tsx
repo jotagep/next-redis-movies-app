@@ -13,12 +13,11 @@ import type { Movie } from '@/types/movies'
 
 import style from './style.module.scss'
 
-type Props = {
+type CardMovieProps = {
   movie: Movie
 }
 
-export default function CardMovie({ movie }: Props) {
-  // Skeleton card
+export default function CardMovie({ movie }: CardMovieProps) {
   if (!movie) return <Spinner />
 
   return (

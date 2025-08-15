@@ -10,24 +10,46 @@ jest.mock('@/lib/moviesApi', () => ({
   getImage: jest.fn((path, size) => `https://image.tmdb.org/t/p/${size}${path}`)
 }))
 
-// Mock the FavoriteBox component
-jest.mock('@/features/FavoriteMovies/FavoriteBox', () => {
-  return function MockFavoriteBox({ movie }: { movie: any }) {
-    return <div data-testid="favorite-box">{movie.title}</div>
-  }
-})
-
 // Mock the MovieImage component
 jest.mock('@/components/MovieImage', () => {
-  return function MockMovieImage({ alt, src }: { alt: string; src: string }) {
-    return <img src={src} alt={alt} data-testid="movie-image" />
+  return function MockMovieImage({ src, alt, className }: any) {
+    return (
+      <img
+        src={src}
+        alt={alt}
+        className={className}
+        data-testid="movie-image"
+      />
+    )
   }
 })
 
 // Mock the RatingBox component
 jest.mock('@/components/RatingBox', () => {
-  return function MockRatingBox({ rate }: { rate: number }) {
-    return <div data-testid="rating-box">{rate}</div>
+  return function MockRatingBox({ rate, className }: any) {
+    return (
+      <div data-testid="rating-box" className={className}>
+        {rate}
+      </div>
+    )
+  }
+})
+
+// Mock the FavoriteBox component
+jest.mock('@/features/FavoriteMovies/FavoriteBox', () => {
+  return function MockFavoriteBox({ movie, className }: any) {
+    return (
+      <div data-testid="favorite-box" className={className}>
+        {movie.title}
+      </div>
+    )
+  }
+})
+
+// Mock the Spinner component
+jest.mock('@/components/Spinner', () => {
+  return function MockSpinner() {
+    return <div data-testid="spinner">Loading...</div>
   }
 })
 
@@ -42,6 +64,12 @@ const mockMovie: Movie = {
 }
 
 describe('CardMovie', () => {
+  it('renders spinner when movie is null', () => {
+    render(<CardMovie movie={null as any} />)
+
+    expect(screen.getByTestId('spinner')).toBeInTheDocument()
+  })
+
   it('renders movie card with backdrop image', () => {
     render(<CardMovie movie={mockMovie} />)
 
@@ -81,11 +109,19 @@ describe('CardMovie', () => {
     expect(favoriteBox).toHaveTextContent('Test Movie')
   })
 
-  it('renders spinner when no movie is provided', () => {
-    render(<CardMovie movie={null as any} />)
+  it('applies correct CSS classes', () => {
+    render(<CardMovie movie={mockMovie} />)
 
-    // Spinner component should be rendered
-    const spinner = screen.getByTestId('spinner')
-    expect(spinner).toBeInTheDocument()
+    const link = screen.getByRole('link')
+    expect(link).toHaveClass('card')
+
+    const ratingBox = screen.getByTestId('rating-box')
+    expect(ratingBox).toHaveClass('rating')
+
+    const favoriteBox = screen.getByTestId('favorite-box')
+    expect(favoriteBox).toHaveClass('favorite')
+
+    const image = screen.getByTestId('movie-image')
+    expect(image).toHaveClass('image')
   })
 })

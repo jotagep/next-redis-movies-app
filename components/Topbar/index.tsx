@@ -10,7 +10,7 @@ import useScrollY from '@/hooks/useScrollY'
 
 import style from './style.module.scss'
 
-const TOPBAR_ANIMATION_HEIGHT = 150
+export const TOPBAR_ANIMATION_HEIGHT = 150
 
 export default function Topbar() {
   const scroll = useScrollY()

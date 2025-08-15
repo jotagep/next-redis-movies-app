@@ -116,7 +116,7 @@ describe('popularMoviesSlice', () => {
       const { getPopularMovies } = require('@/lib/moviesApi')
       getPopularMovies.mockResolvedValue(mockMovies)
 
-      store.dispatch(fetchPopularMovies(1))
+      await store.dispatch(fetchPopularMovies(1))
 
       const state = store.getState().popularMovies
       expect(state.movies).toEqual(mockMovies)
@@ -130,7 +130,7 @@ describe('popularMoviesSlice', () => {
       const errorMessage = 'Network error'
       getPopularMovies.mockRejectedValue(new Error(errorMessage))
 
-      store.dispatch(fetchPopularMovies(1))
+      await store.dispatch(fetchPopularMovies(1))
 
       const state = store.getState().popularMovies
       expect(state.isLoading).toBe(false)
