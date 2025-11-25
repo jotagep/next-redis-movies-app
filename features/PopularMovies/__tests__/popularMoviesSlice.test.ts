@@ -13,7 +13,9 @@ import { Movie } from '@/types/movies'
 
 // Mock the moviesApi module
 jest.mock('@/lib/moviesApi', () => ({
-  getPopularMovies: jest.fn()
+  moviesApi: {
+    getPopularMovies: jest.fn()
+  }
 }))
 
 const mockMovies: Movie[] = [
@@ -113,8 +115,8 @@ describe('popularMoviesSlice', () => {
 
   describe('async thunk', () => {
     it('should fetch popular movies successfully', async () => {
-      const { getPopularMovies } = require('@/lib/moviesApi')
-      getPopularMovies.mockResolvedValue(mockMovies)
+      const { moviesApi } = require('@/lib/moviesApi')
+      moviesApi.getPopularMovies.mockResolvedValue(mockMovies)
 
       await store.dispatch(fetchPopularMovies(1))
 
@@ -122,13 +124,13 @@ describe('popularMoviesSlice', () => {
       expect(state.movies).toEqual(mockMovies)
       expect(state.isLoading).toBe(false)
       expect(state.error).toBe(null)
-      expect(getPopularMovies).toHaveBeenCalledWith(1)
+      expect(moviesApi.getPopularMovies).toHaveBeenCalledWith(1)
     })
 
     it('should handle fetch error', async () => {
-      const { getPopularMovies } = require('@/lib/moviesApi')
+      const { moviesApi } = require('@/lib/moviesApi')
       const errorMessage = 'Network error'
-      getPopularMovies.mockRejectedValue(new Error(errorMessage))
+      moviesApi.getPopularMovies.mockRejectedValue(new Error(errorMessage))
 
       await store.dispatch(fetchPopularMovies(1))
 

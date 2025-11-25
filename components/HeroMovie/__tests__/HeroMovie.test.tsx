@@ -7,7 +7,11 @@ import { Movie } from '@/types/movies'
 
 // Mock the moviesApi module
 jest.mock('@/lib/moviesApi', () => ({
-  getImage: jest.fn((path, size) => `https://image.tmdb.org/t/p/${size}${path}`)
+  moviesApi: {
+    getImage: jest.fn(
+      (path, size) => `https://image.tmdb.org/t/p/${size}${path}`
+    )
+  }
 }))
 
 // Mock the MovieImage component
