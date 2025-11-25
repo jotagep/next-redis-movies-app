@@ -1,4 +1,4 @@
-import { getBudget } from '../index'
+import { getBudget } from './currency'
 
 describe('Utils', () => {
   describe('getBudget', () => {

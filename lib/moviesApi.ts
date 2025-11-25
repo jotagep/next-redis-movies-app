@@ -43,8 +43,6 @@ class MoviesService {
       const url = `${this.baseUrl}${path}?${queryParams.toString()}`
       const response = await fetch(url, options)
 
-      console.log(response)
-
       if (!response.ok) {
         let errorData
         try {

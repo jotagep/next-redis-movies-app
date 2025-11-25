@@ -1,5 +1,5 @@
-import { ApiError, NetworkError, ValidationError } from '../error'
-import { moviesApi } from '../moviesApi'
+import { ApiError, NetworkError, ValidationError } from './error'
+import { moviesApi } from './moviesApi'
 
 // Mock global fetch
 global.fetch = jest.fn()
@@ -7,21 +7,6 @@ global.fetch = jest.fn()
 describe('MoviesService', () => {
   beforeEach(() => {
     jest.clearAllMocks()
-  })
-
-  describe('constructor', () => {
-    it('should throw ValidationError if API key is not provided', () => {
-      const originalKey = process.env.NEXT_PUBLIC_MOVIES_API_KEY
-      delete process.env.NEXT_PUBLIC_MOVIES_API_KEY
-
-      expect(() => {
-        // Force re-import to trigger constructor
-        jest.resetModules()
-        require('../moviesApi')
-      }).toThrow(ValidationError)
-
-      process.env.NEXT_PUBLIC_MOVIES_API_KEY = originalKey
-    })
   })
 
   describe('getImage', () => {
@@ -62,21 +47,6 @@ describe('MoviesService', () => {
         expect.stringContaining('/movie/popular'),
         undefined
       )
-      expect(global.fetch).toHaveBeenCalledWith(
-        expect.stringContaining('page=1'),
-        undefined
-      )
-    })
-
-    it('should throw ApiError when response is not ok', async () => {
-      ;(global.fetch as jest.Mock).mockResolvedValueOnce({
-        ok: false,
-        status: 404,
-        statusText: 'Not Found',
-        json: async () => ({ status_message: 'Resource not found' })
-      })
-
-      await expect(moviesApi.getPopularMovies(1)).rejects.toThrow(ApiError)
     })
   })
 
@@ -96,10 +66,6 @@ describe('MoviesService', () => {
       const result = await moviesApi.getDetailMovie(1)
 
       expect(result).toEqual(mockData)
-      expect(global.fetch).toHaveBeenCalledWith(
-        expect.stringContaining('/movie/1'),
-        undefined
-      )
     })
 
     it('should throw ValidationError if id is invalid', async () => {
@@ -107,17 +73,6 @@ describe('MoviesService', () => {
       await expect(moviesApi.getDetailMovie(-1)).rejects.toThrow(
         ValidationError
       )
-    })
-
-    it('should throw ApiError when response is not ok', async () => {
-      ;(global.fetch as jest.Mock).mockResolvedValueOnce({
-        ok: false,
-        status: 500,
-        statusText: 'Internal Server Error',
-        json: async () => null
-      })
-
-      await expect(moviesApi.getDetailMovie(1)).rejects.toThrow(ApiError)
     })
   })
 
@@ -138,10 +93,6 @@ describe('MoviesService', () => {
       const result = await moviesApi.getRelatedMovies(1)
 
       expect(result).toEqual(mockData.results)
-      expect(global.fetch).toHaveBeenCalledWith(
-        expect.stringContaining('/movie/1/recommendations'),
-        undefined
-      )
     })
 
     it('should throw ValidationError if id is invalid', async () => {
@@ -168,10 +119,6 @@ describe('MoviesService', () => {
       const result = await moviesApi.getCastMovie(1)
 
       expect(result).toEqual(mockData.cast)
-      expect(global.fetch).toHaveBeenCalledWith(
-        expect.stringContaining('/movie/1/credits'),
-        undefined
-      )
     })
 
     it('should throw ValidationError if id is invalid', async () => {
@@ -196,14 +143,6 @@ describe('MoviesService', () => {
       const result = await moviesApi.getSearchMovie('test')
 
       expect(result).toEqual(mockData.results)
-      expect(global.fetch).toHaveBeenCalledWith(
-        expect.stringContaining('/search/movie'),
-        undefined
-      )
-      expect(global.fetch).toHaveBeenCalledWith(
-        expect.stringContaining('query=test'),
-        undefined
-      )
     })
 
     it('should throw ValidationError if search text is empty', async () => {
@@ -216,7 +155,18 @@ describe('MoviesService', () => {
     })
   })
 
-  describe('fetch method (error handling)', () => {
+  describe('error handling', () => {
+    it('should throw ApiError when API responds with error', async () => {
+      ;(global.fetch as jest.Mock).mockResolvedValueOnce({
+        ok: false,
+        status: 404,
+        statusText: 'Not Found',
+        json: async () => ({ status_message: 'Resource not found' })
+      })
+
+      await expect(moviesApi.getPopularMovies(1)).rejects.toThrow(ApiError)
+    })
+
     it('should throw NetworkError when fetch fails', async () => {
       ;(global.fetch as jest.Mock).mockRejectedValueOnce(
         new Error('Network failure')

@@ -9,7 +9,7 @@ import { moviesApi } from '@/lib/moviesApi'
 
 import { MovieInfo } from '@/types/movies'
 
-import { getBudget } from '@/utils'
+import { getBudget } from '@/utils/currency'
 
 import style from './style.module.scss'
 
