@@ -9,7 +9,7 @@ export type ScrollY = {
 
 const useScrollY = () => {
   const [scrollPosition, setScrollPosition] = useState<ScrollY>({
-    y: window.scrollY,
+    y: typeof window !== 'undefined' ? window.scrollY : 0,
     direction: null
   })
 

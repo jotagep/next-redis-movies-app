@@ -7,7 +7,7 @@ import Spinner from '@/components/Spinner'
 
 import FavoriteBox from '@/features/FavoriteMovies/FavoriteBox'
 
-import { getImage } from '@/lib/moviesApi'
+import { moviesApi } from '@/lib/moviesApi'
 
 import type { Movie } from '@/types/movies'
 
@@ -28,7 +28,7 @@ export default function CardMovie({ movie }: CardMovieProps) {
         <MovieImage
           fill={true}
           sizes="(max-width: 768px) 100vw, 25vw"
-          src={getImage(movie.backdrop_path, 'w500')}
+          src={moviesApi.getImage(movie.backdrop_path, 'w500')}
           alt={movie.title}
           className={style.image}
         />
@@ -36,7 +36,7 @@ export default function CardMovie({ movie }: CardMovieProps) {
         <MovieImage
           fill={true}
           sizes="(max-width: 768px) 100vw, 25vw"
-          src={getImage(movie.poster_path, 'w500')}
+          src={moviesApi.getImage(movie.poster_path, 'w500')}
           alt={movie.title}
           className={style.image}
         />

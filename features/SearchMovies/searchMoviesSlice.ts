@@ -1,6 +1,6 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit'
 
-import { getSearchMovie } from '@/lib/moviesApi'
+import { moviesApi } from '@/lib/moviesApi'
 
 import { AppThunk } from '@/store/store'
 
@@ -73,7 +73,7 @@ export const fetchSearchMovie =
   async (dispatch) => {
     try {
       dispatch(getSearchMovieStart())
-      const movies = await getSearchMovie(text)
+      const movies = await moviesApi.getSearchMovie(text)
       dispatch(getSearchMovieSuccess(movies))
     } catch (error: any) {
       dispatch(getSearchMovieFailure(error.message))

@@ -1,6 +1,6 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit'
 
-import { getPopularMovies } from '@/lib/moviesApi'
+import { moviesApi } from '@/lib/moviesApi'
 
 import { AppThunk } from '@/store/store'
 
@@ -63,7 +63,7 @@ export const fetchPopularMovies =
   async (dispatch) => {
     try {
       dispatch(getPopularMoviesStart())
-      const movies = await getPopularMovies(page)
+      const movies = await moviesApi.getPopularMovies(page)
       dispatch(getPopularMoviesSuccess(movies))
     } catch (error: any) {
       dispatch(getPopularMoviesFailure(error.message))

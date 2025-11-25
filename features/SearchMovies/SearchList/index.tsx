@@ -5,7 +5,7 @@ import Link from 'next/link'
 import MovieImage from '@/components/MovieImage'
 import RatingBox from '@/components/RatingBox'
 
-import { getImage } from '@/lib/moviesApi'
+import { moviesApi } from '@/lib/moviesApi'
 
 import type { RootState } from '@/store/rootReducer'
 
@@ -41,7 +41,7 @@ export default function SearchList() {
             >
               <div className="flex items-center">
                 <MovieImage
-                  src={getImage(item.poster_path, 'w500')}
+                  src={moviesApi.getImage(item.poster_path, 'w500')}
                   alt={`Poster ${item.title}`}
                   width={32}
                   height={48}

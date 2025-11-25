@@ -5,7 +5,7 @@ import MovieImage from '@/components/MovieImage'
 
 import FavoriteBox from '@/features/FavoriteMovies/FavoriteBox'
 
-import { getImage } from '@/lib/moviesApi'
+import { moviesApi } from '@/lib/moviesApi'
 
 import { MovieInfo } from '@/types/movies'
 
@@ -27,7 +27,7 @@ export default function HeroDetail({ movie }: Props) {
               className={style.poster}
               width={340}
               height={510}
-              src={getImage(movie.poster_path, 'w500')}
+              src={moviesApi.getImage(movie.poster_path, 'w500')}
               alt={`Poster of ${movie.original_name}`}
             />
           </div>
@@ -53,7 +53,7 @@ export default function HeroDetail({ movie }: Props) {
             </span>
             <h4 className="font-bold text-lg mb-2">Cast:</h4>
             <ul className="grid grid-cols-4 gap-2">
-              {movie.cast.slice(0, 6).map((item, i) => (
+              {movie.cast?.slice(0, 6).map((item, i) => (
                 <li className="" key={i}>
                   <span className="block">{item.character || '---'}</span>
                   <span className="text-gray-500">{item.name}</span>

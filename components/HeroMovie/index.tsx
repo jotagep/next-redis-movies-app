@@ -4,7 +4,7 @@ import Container from '@/components/Container'
 import MovieImage from '@/components/MovieImage'
 import Spinner from '@/components/Spinner'
 
-import { getImage } from '@/lib/moviesApi'
+import { moviesApi } from '@/lib/moviesApi'
 
 import { Movie } from '@/types/movies'
 
@@ -30,7 +30,7 @@ export default function HeroMovie({
       <MovieImage
         fill={true}
         sizes="100vw"
-        src={getImage(movie.backdrop_path, 'original')}
+        src={moviesApi.getImage(movie.backdrop_path, 'original')}
         alt={`Background from ${movie.title}`}
         className={style.image}
       />
