@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react'
 import { useSelector } from 'react-redux'
 
-import Spinner from '@/components/Spinner'
+import Spinner from '@/components/Spinner/Spinner'
 
 import { RootState } from '@/store/rootReducer'
 import { useAppDispatch } from '@/store/store'

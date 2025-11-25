@@ -1,6 +1,6 @@
 import React from 'react'
 
-import GridMovie from '@/components/GridMovie'
+import GridMovie from '@/components/GridMovie/GridMovie'
 
 import { Movie } from '@/types/movies'
 

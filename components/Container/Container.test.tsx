@@ -1,7 +1,7 @@
 import React from 'react'
 import { render, screen } from '@testing-library/react'
 
-import Container from '@/components/Container'
+import Container from '@/components/Container/Container'
 
 describe('Container', () => {
   it('renders children correctly', () => {

@@ -1,7 +1,7 @@
 import React from 'react'
 import { render, screen } from '@testing-library/react'
 
-import ButtonLink from '@/components/ButtonLink'
+import ButtonLink from '@/components/ButtonLink/ButtonLink'
 
 const mockUseRouter = jest.fn()
 

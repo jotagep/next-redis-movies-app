@@ -18,7 +18,6 @@ export interface MovieDetailed extends Movie {
   release_date: string
   tagline: string
   runtime: string
-  relase_date: string
   budget: number
   revenue: number
   genres: {

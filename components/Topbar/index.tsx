@@ -1,8 +1,8 @@
 import React from 'react'
 import Link from 'next/link'
 
-import ButtonLink from '@/components/ButtonLink'
-import Container from '@/components/Container'
+import ButtonLink from '@/components/ButtonLink/ButtonLink'
+import Container from '@/components/Container/Container'
 
 import SearchBar from '@/features/SearchMovies/SearchBar'
 

@@ -10,7 +10,7 @@ jest.mock('@/hooks/useScrollY', () => ({
 }))
 
 // Mock the ButtonLink component
-jest.mock('@/components/ButtonLink', () => {
+jest.mock('@/components/ButtonLink/ButtonLink', () => {
   return function MockButtonLink({ to, children }: any) {
     return (
       <a href={to} data-testid="button-link">
@@ -21,7 +21,7 @@ jest.mock('@/components/ButtonLink', () => {
 })
 
 // Mock the Container component
-jest.mock('@/components/Container', () => {
+jest.mock('@/components/Container/Container', () => {
   return function MockContainer({ children, className }: any) {
     return (
       <div data-testid="container" className={className}>

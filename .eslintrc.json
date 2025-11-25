@@ -1,5 +1,5 @@
 {
-  "extends": "next/core-web-vitals",
+  "extends": ["next/core-web-vitals", "plugin:storybook/recommended"],
   "plugins": ["simple-import-sort"],
   "rules": {
     "import/first": "error",
@@ -22,7 +22,6 @@
           ["^(@/store)(/.*|$)"],
           ["^(@/types)(/.*|$)"],
           ["^(@/utils)(/.*|$)"],
-
           // Styles
           ["^(@/styles)(/.*|$)"],
           // Side effect imports.

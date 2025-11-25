@@ -9,7 +9,7 @@ import popularMoviesReducer from '@/features/PopularMovies/popularMoviesSlice'
 import { Movie } from '@/types/movies'
 
 // Mock the GridMovie component
-jest.mock('@/components/GridMovie', () => {
+jest.mock('@/components/GridMovie/GridMovie', () => {
   return function MockGridMovie({
     movies,
     title

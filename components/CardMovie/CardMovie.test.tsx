@@ -15,7 +15,7 @@ jest.mock('@/lib/moviesApi', () => ({
 }))
 
 // Mock the MovieImage component
-jest.mock('@/components/MovieImage', () => {
+jest.mock('@/components/MovieImage/MovieImage', () => {
   return function MockMovieImage({ src, alt, className }: any) {
     return (
       <img
@@ -29,7 +29,7 @@ jest.mock('@/components/MovieImage', () => {
 })
 
 // Mock the RatingBox component
-jest.mock('@/components/RatingBox', () => {
+jest.mock('@/components/RatingBox/RatingBox', () => {
   return function MockRatingBox({ rate, className }: any) {
     return (
       <div data-testid="rating-box" className={className}>
@@ -51,7 +51,7 @@ jest.mock('@/features/FavoriteMovies/FavoriteBox', () => {
 })
 
 // Mock the Spinner component
-jest.mock('@/components/Spinner', () => {
+jest.mock('@/components/Spinner/Spinner', () => {
   return function MockSpinner() {
     return <div data-testid="spinner">Loading...</div>
   }

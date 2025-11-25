@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from 'react'
 import { shallowEqual, useSelector } from 'react-redux'
 
-import Container from '@/components/Container'
-import GridMovie from '@/components/GridMovie'
+import Container from '@/components/Container/Container'
+import GridMovie from '@/components/GridMovie/GridMovie'
 
 import type { RootState } from '@/store/rootReducer'
 

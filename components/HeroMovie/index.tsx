@@ -1,8 +1,8 @@
 import React from 'react'
 
-import Container from '@/components/Container'
-import MovieImage from '@/components/MovieImage'
-import Spinner from '@/components/Spinner'
+import Container from '@/components/Container/Container'
+import MovieImage from '@/components/MovieImage/MovieImage'
+import Spinner from '@/components/Spinner/Spinner'
 
 import { moviesApi } from '@/lib/moviesApi'
 

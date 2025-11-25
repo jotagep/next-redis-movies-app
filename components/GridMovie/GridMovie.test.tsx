@@ -1,7 +1,7 @@
 import React from 'react'
 import { render, screen } from '@testing-library/react'
 
-import GridMovie from '@/components/GridMovie'
+import GridMovie from '@/components/GridMovie/GridMovie'
 
 import { Movie } from '@/types/movies'
 
@@ -13,7 +13,7 @@ jest.mock('@/components/CardMovie', () => {
 })
 
 // Mock the Container component
-jest.mock('@/components/Container', () => {
+jest.mock('@/components/Container/Container', () => {
   return function MockContainer({ children, className }: any) {
     return (
       <div data-testid="container" className={className}>
@@ -45,10 +45,10 @@ const mockMovies: Movie[] = [
 ]
 
 describe('GridMovie', () => {
-  it('renders loading state when movies is undefined', () => {
+  it('renders spinner when movies is undefined', () => {
     render(<GridMovie movies={undefined} />)
 
-    expect(screen.getByText('Loading...')).toBeInTheDocument()
+    expect(screen.getByTestId('spinner')).toBeInTheDocument()
   })
 
   it('renders movies grid without title', () => {
@@ -95,5 +95,6 @@ describe('GridMovie', () => {
 
     expect(screen.getByTestId('container')).toBeInTheDocument()
     expect(screen.queryByTestId('card-movie')).not.toBeInTheDocument()
+    expect(screen.queryByTestId('spinner')).not.toBeInTheDocument()
   })
 })

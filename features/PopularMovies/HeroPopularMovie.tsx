@@ -1,9 +1,9 @@
 import React from 'react'
 import { useSelector } from 'react-redux'
 
-import ButtonLink from '@/components/ButtonLink'
+import ButtonLink from '@/components/ButtonLink/ButtonLink'
 import HeroMovie from '@/components/HeroMovie'
-import Spinner from '@/components/Spinner'
+import Spinner from '@/components/Spinner/Spinner'
 
 import FavoriteBox from '@/features/FavoriteMovies/FavoriteBox'
 

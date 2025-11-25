@@ -1,7 +1,7 @@
 import React from 'react'
 import { render, screen } from '@testing-library/react'
 
-import RatingBox from '@/components/RatingBox'
+import RatingBox from '@/components/RatingBox/RatingBox'
 
 describe('RatingBox', () => {
   it('renders with red background for rate less than 5.0', () => {

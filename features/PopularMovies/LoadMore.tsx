@@ -1,7 +1,7 @@
 import React, { useCallback, useEffect, useRef } from 'react'
 import { shallowEqual, useSelector } from 'react-redux'
 
-import Spinner from '@/components/Spinner'
+import Spinner from '@/components/Spinner/Spinner'
 
 import type { RootState } from '@/store/rootReducer'
 import { useAppDispatch } from '@/store/store'

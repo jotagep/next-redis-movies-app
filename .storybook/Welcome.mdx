@@ -1,0 +1,77 @@
+import { Meta, Title, Subtitle, Description } from '@storybook/blocks'
+
+<Meta title="Introducción/Bienvenida" />
+
+# Bienvenido a Verflix Storybook 🎬
+
+<Subtitle>
+  Biblioteca de componentes para la aplicación de películas Next Redis Movies
+  App
+</Subtitle>
+
+## 🎯 Propósito
+
+Este Storybook contiene todos los componentes de UI utilizados en la aplicación Verflix. Aquí puedes:
+
+- **Explorar** todos los componentes de forma aislada
+- **Probar** diferentes estados y variaciones
+- **Documentar** el comportamiento y las props de cada componente
+- **Desarrollar** nuevos componentes sin necesidad de ejecutar toda la aplicación
+
+## 📦 Estructura de Componentes
+
+### Components
+
+Componentes reutilizables y genéricos:
+
+- **ButtonLink**: Navegación entre páginas
+- **Container**: Layout wrapper
+- **RatingBox**: Visualización de puntuaciones
+- **Spinner**: Indicadores de carga
+- **MovieImage**: Imágenes con fallback
+- **CardMovie**: Tarjetas de película
+- **HeroMovie**: Sección hero
+- **Topbar**: Navegación principal
+
+### Features
+
+Componentes específicos de funcionalidades:
+
+- **FavoriteMovies**: Gestión de favoritos
+- **SearchMovies**: Búsqueda de películas
+- **PopularMovies**: Películas populares
+- **SelectedMovie**: Detalle de película
+
+## 🛠️ Tecnologías
+
+- **React 18** con TypeScript
+- **Next.js 14** (Pages Router)
+- **Tailwind CSS** para estilos utility-first
+- **SCSS Modules** para estilos encapsulados
+- **Redux Toolkit** para gestión de estado
+- **Jest** para testing
+
+## 📝 Cómo Usar
+
+1. Navega por las categorías en el sidebar izquierdo
+2. Selecciona un componente para ver sus variantes
+3. Usa los controles en el panel inferior para modificar props
+4. Revisa la documentación automática en la pestaña "Docs"
+
+## 🚀 Comenzar
+
+Para ejecutar Storybook localmente:
+
+\`\`\`bash
+npm run storybook
+\`\`\`
+
+Para construir una versión estática:
+
+\`\`\`bash
+npm run build-storybook
+\`\`\`
+
+---
+
+**¡Explora los componentes y construye interfaces increíbles!** 🎨

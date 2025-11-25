@@ -1,9 +1,9 @@
 import React from 'react'
 import Link from 'next/link'
 
-import MovieImage from '@/components/MovieImage'
-import RatingBox from '@/components/RatingBox'
-import Spinner from '@/components/Spinner'
+import MovieImage from '@/components/MovieImage/MovieImage'
+import RatingBox from '@/components/RatingBox/RatingBox'
+import Spinner from '@/components/Spinner/Spinner'
 
 import FavoriteBox from '@/features/FavoriteMovies/FavoriteBox'
 

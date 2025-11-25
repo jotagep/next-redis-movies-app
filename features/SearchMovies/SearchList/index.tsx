@@ -2,8 +2,8 @@ import React, { useEffect } from 'react'
 import { shallowEqual, useSelector } from 'react-redux'
 import Link from 'next/link'
 
-import MovieImage from '@/components/MovieImage'
-import RatingBox from '@/components/RatingBox'
+import MovieImage from '@/components/MovieImage/MovieImage'
+import RatingBox from '@/components/RatingBox/RatingBox'
 
 import { moviesApi } from '@/lib/moviesApi'
 

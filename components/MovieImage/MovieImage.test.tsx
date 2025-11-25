@@ -1,7 +1,7 @@
 import React from 'react'
 import { act, render, screen } from '@testing-library/react'
 
-import MovieImage from '@/components/MovieImage'
+import MovieImage from '@/components/MovieImage/MovieImage'
 
 // Mock next/image
 jest.mock('next/image', () => {

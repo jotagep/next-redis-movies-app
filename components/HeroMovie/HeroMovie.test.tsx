@@ -15,7 +15,7 @@ jest.mock('@/lib/moviesApi', () => ({
 }))
 
 // Mock the MovieImage component
-jest.mock('@/components/MovieImage', () => {
+jest.mock('@/components/MovieImage/MovieImage', () => {
   return function MockMovieImage({ src, alt, className }: any) {
     return (
       <img
@@ -29,7 +29,7 @@ jest.mock('@/components/MovieImage', () => {
 })
 
 // Mock the Container component
-jest.mock('@/components/Container', () => {
+jest.mock('@/components/Container/Container', () => {
   return function MockContainer({ children, className }: any) {
     return (
       <div data-testid="container" className={className}>
@@ -40,7 +40,7 @@ jest.mock('@/components/Container', () => {
 })
 
 // Mock the Spinner component
-jest.mock('@/components/Spinner', () => {
+jest.mock('@/components/Spinner/Spinner', () => {
   return function MockSpinner() {
     return <div data-testid="spinner">Loading...</div>
   }

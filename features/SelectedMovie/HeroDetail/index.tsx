@@ -1,7 +1,7 @@
 import React from 'react'
 
 import HeroMovie from '@/components/HeroMovie'
-import MovieImage from '@/components/MovieImage'
+import MovieImage from '@/components/MovieImage/MovieImage'
 
 import FavoriteBox from '@/features/FavoriteMovies/FavoriteBox'
 

@@ -1,7 +1,7 @@
 import React from 'react'
 import { useSelector } from 'react-redux'
 
-import GridMovie from '@/components/GridMovie'
+import GridMovie from '@/components/GridMovie/GridMovie'
 
 import type { RootState } from '@/store/rootReducer'
 
