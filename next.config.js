@@ -8,6 +8,15 @@ const nextConfig = {
         port: ''
       }
     ]
+  },
+  redirects: async () => {
+    return [
+      {
+        source: '/storybook',
+        destination: '/storybook/index.html',
+        permanent: false
+      }
+    ]
   }
 }
 

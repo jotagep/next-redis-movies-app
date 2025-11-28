@@ -16,7 +16,7 @@ const mockMovie: Movie = {
 }
 
 const meta = {
-  title: 'Blocks/HeroMovie',
+  title: 'UI/Organisms/HeroMovie',
   component: HeroMovie,
   parameters: {
     layout: 'fullscreen'
@@ -39,10 +39,8 @@ export const WithCustomContent: Story = {
     movie: mockMovie,
     children: (
       <div>
-        <h1 className="text-5xl font-bold text-white mb-4">
-          {mockMovie.title}
-        </h1>
-        <p className="text-xl text-white max-w-2xl">{mockMovie.overview}</p>
+        <h1 className="mb-4 text-5xl font-bold text-white">{mockMovie.title}</h1>
+        <p className="max-w-2xl text-xl text-white">{mockMovie.overview}</p>
       </div>
     )
   }

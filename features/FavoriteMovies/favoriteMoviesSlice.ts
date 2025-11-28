@@ -24,10 +24,7 @@ const favoriteMoviesSlice = createSlice({
   name: 'favoriteMovies',
   initialState: initialState,
   reducers: {
-    toggleFavorite: (
-      state: FavoriteMoviesState,
-      { payload }: PayloadAction<Movie>
-    ) => {
+    toggleFavorite: (state: FavoriteMoviesState, { payload }: PayloadAction<Movie>) => {
       if (state.movies[payload.id]) {
         delete state.movies[payload.id]
       } else {

@@ -43,10 +43,7 @@ describe('MoviesService', () => {
       const result = await moviesApi.getPopularMovies(1)
 
       expect(result).toEqual(mockData.results)
-      expect(global.fetch).toHaveBeenCalledWith(
-        expect.stringContaining('/movie/popular'),
-        undefined
-      )
+      expect(global.fetch).toHaveBeenCalledWith(expect.stringContaining('/movie/popular'), undefined)
     })
   })
 
@@ -70,9 +67,7 @@ describe('MoviesService', () => {
 
     it('should throw ValidationError if id is invalid', async () => {
       await expect(moviesApi.getDetailMovie(0)).rejects.toThrow(ValidationError)
-      await expect(moviesApi.getDetailMovie(-1)).rejects.toThrow(
-        ValidationError
-      )
+      await expect(moviesApi.getDetailMovie(-1)).rejects.toThrow(ValidationError)
     })
   })
 
@@ -96,9 +91,7 @@ describe('MoviesService', () => {
     })
 
     it('should throw ValidationError if id is invalid', async () => {
-      await expect(moviesApi.getRelatedMovies(0)).rejects.toThrow(
-        ValidationError
-      )
+      await expect(moviesApi.getRelatedMovies(0)).rejects.toThrow(ValidationError)
     })
   })
 
@@ -146,12 +139,8 @@ describe('MoviesService', () => {
     })
 
     it('should throw ValidationError if search text is empty', async () => {
-      await expect(moviesApi.getSearchMovie('')).rejects.toThrow(
-        ValidationError
-      )
-      await expect(moviesApi.getSearchMovie('   ')).rejects.toThrow(
-        ValidationError
-      )
+      await expect(moviesApi.getSearchMovie('')).rejects.toThrow(ValidationError)
+      await expect(moviesApi.getSearchMovie('   ')).rejects.toThrow(ValidationError)
     })
   })
 
@@ -168,9 +157,7 @@ describe('MoviesService', () => {
     })
 
     it('should throw NetworkError when fetch fails', async () => {
-      ;(global.fetch as jest.Mock).mockRejectedValueOnce(
-        new Error('Network failure')
-      )
+      ;(global.fetch as jest.Mock).mockRejectedValueOnce(new Error('Network failure'))
 
       await expect(moviesApi.getPopularMovies(1)).rejects.toThrow(NetworkError)
     })

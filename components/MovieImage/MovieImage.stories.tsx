@@ -3,7 +3,7 @@ import type { Meta, StoryObj } from '@storybook/nextjs'
 import MovieImage from './MovieImage'
 
 const meta = {
-  title: 'UI/MovieImage',
+  title: 'UI/Molecules/MovieImage',
   component: MovieImage,
   parameters: {
     layout: 'centered'

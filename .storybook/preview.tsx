@@ -22,6 +22,12 @@ const preview: Preview = {
       navigation: {
         pathname: '/'
       }
+    },
+    options: {
+      storySort: {
+        method: 'alphabetical',
+        order: ['Introducción', 'UI', 'Features']
+      }
     }
   },
   initialGlobals: {
@@ -33,7 +39,8 @@ const preview: Preview = {
         <Story />
       </Provider>
     )
-  ]
+  ],
+  tags: ['autodocs']
 }
 
 export default preview

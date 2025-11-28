@@ -15,14 +15,12 @@ describe('useScrollY', () => {
   beforeEach(() => {
     setScrollY(0)
 
-    requestAnimationFrameSpy = jest
-      .spyOn(window, 'requestAnimationFrame')
-      .mockImplementation((cb) => {
-        setTimeout(() => {
-          act(() => cb(0))
-        }, 0)
-        return 0
-      })
+    requestAnimationFrameSpy = jest.spyOn(window, 'requestAnimationFrame').mockImplementation((cb) => {
+      setTimeout(() => {
+        act(() => cb(0))
+      }, 0)
+      return 0
+    })
   })
 
   afterEach(() => {
@@ -112,9 +110,6 @@ describe('useScrollY', () => {
 
     unmount()
 
-    expect(removeEventListenerSpy).toHaveBeenCalledWith(
-      'scroll',
-      expect.any(Function)
-    )
+    expect(removeEventListenerSpy).toHaveBeenCalledWith('scroll', expect.any(Function))
   })
 })

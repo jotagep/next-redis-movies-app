@@ -8,23 +8,14 @@ import { Movie } from '@/types/movies'
 // Mock the moviesApi module
 jest.mock('@/lib/moviesApi', () => ({
   moviesApi: {
-    getImage: jest.fn(
-      (path, size) => `https://image.tmdb.org/t/p/${size}${path}`
-    )
+    getImage: jest.fn((path, size) => `https://image.tmdb.org/t/p/${size}${path}`)
   }
 }))
 
 // Mock the MovieImage component
 jest.mock('@/components/MovieImage/MovieImage', () => {
   return function MockMovieImage({ src, alt, className }: any) {
-    return (
-      <img
-        src={src}
-        alt={alt}
-        className={className}
-        data-testid="movie-image"
-      />
-    )
+    return <img src={src} alt={alt} className={className} data-testid="movie-image" />
   }
 })
 
@@ -76,10 +67,7 @@ describe('HeroMovie', () => {
 
     const image = screen.getByTestId('movie-image')
     expect(image).toHaveAttribute('alt', 'Background from Test Movie')
-    expect(image).toHaveAttribute(
-      'src',
-      'https://image.tmdb.org/t/p/original/test-backdrop.jpg'
-    )
+    expect(image).toHaveAttribute('src', 'https://image.tmdb.org/t/p/original/test-backdrop.jpg')
   })
 
   it('renders children content', () => {
@@ -111,13 +99,7 @@ describe('HeroMovie', () => {
     )
 
     const heroDiv = screen.getByTestId('container').parentElement
-    expect(heroDiv).toHaveClass(
-      'pt-24',
-      'flex',
-      'items-center',
-      'h-screen',
-      'relative'
-    )
+    expect(heroDiv).toHaveClass('pt-24', 'flex', 'items-center', 'h-screen', 'relative')
   })
 
   it('applies image CSS class', () => {

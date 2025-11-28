@@ -3,7 +3,7 @@ import type { Meta, StoryObj } from '@storybook/nextjs'
 import Container from './Container'
 
 const meta = {
-  title: 'UI/Container',
+  title: 'UI/Atoms/Container',
   component: Container,
   parameters: {
     layout: 'fullscreen'
@@ -34,7 +34,7 @@ export const WithContent: Story = {
   args: {
     children: (
       <div>
-        <h1 className="text-2xl font-bold mb-4">Título</h1>
+        <h1 className="mb-4 text-2xl font-bold">Título</h1>
         <p>Este es un ejemplo de contenido dentro del contenedor.</p>
       </div>
     )

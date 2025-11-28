@@ -4,10 +4,7 @@ import Spinner from '@/components/Spinner/Spinner'
 
 export default function Loading() {
   return (
-    <div
-      className="flex items-center justify-center w-100 h-screen"
-      data-testid="loading-container"
-    >
+    <div className="w-100 flex h-screen items-center justify-center" data-testid="loading-container">
       <Spinner />
     </div>
   )

@@ -13,7 +13,7 @@ export default function GridPopularMovies() {
   const [_, ...restMovies] = movies
 
   return (
-    <section className="-mt-20 relative">
+    <section className="relative -mt-20">
       <GridMovie movies={restMovies} title="Popular Movies" />
     </section>
   )

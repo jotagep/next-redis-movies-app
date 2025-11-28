@@ -3,7 +3,7 @@ import type { Meta, StoryObj } from '@storybook/nextjs'
 import RatingBox from './RatingBox'
 
 const meta = {
-  title: 'UI/RatingBox',
+  title: 'UI/Molecules/RatingBox',
   component: RatingBox,
   parameters: {
     layout: 'centered'

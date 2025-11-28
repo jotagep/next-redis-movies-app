@@ -8,8 +8,7 @@ import CardMovie from './index'
 const mockMovie: MovieDetailed = {
   id: 872585,
   title: 'Oppenheimer',
-  overview:
-    'La historia del físico teórico J. Robert Oppenheimer y su papel en el desarrollo de la bomba atómica.',
+  overview: 'La historia del físico teórico J. Robert Oppenheimer y su papel en el desarrollo de la bomba atómica.',
   poster_path: '/8Gxv8gSFCU0XGDykEGv7zR1n2ua.jpg',
   backdrop_path: '/628Dep6AxEtDxjZoGP78TsOxYbK.jpg',
   vote_average: 7.1,
@@ -32,7 +31,7 @@ const mockMovie: MovieDetailed = {
 }
 
 const meta = {
-  title: 'Blocks/CardMovie',
+  title: 'UI/Organisms/CardMovie',
   component: CardMovie,
   parameters: {
     layout: 'padded',

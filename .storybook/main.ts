@@ -1,14 +1,13 @@
 import type { StorybookConfig } from '@storybook/nextjs'
 
 const config: StorybookConfig = {
-  stories: [
-    '../components/**/*.stories.@(ts|tsx)',
-    '../features/**/*.stories.@(ts|tsx)'
-  ],
-  addons: ['@storybook/addon-a11y'],
+  stories: ['./Welcome.mdx', '../components/**/*.stories.@(ts|tsx|mdx)', '../features/**/*.stories.@(ts|tsx|mdx)'],
+  addons: ['@storybook/addon-a11y', '@storybook/addon-docs'],
   framework: {
     name: '@storybook/nextjs',
-    options: {}
+    options: {
+      mdx: { mode: 'mdx3' }
+    }
   },
   staticDirs: ['../public']
 }

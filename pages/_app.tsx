@@ -9,6 +9,8 @@ import SearchList from '@/features/SearchMovies/SearchList'
 
 import store from '@/store/store'
 
+import StorybookTab from '../components/StorybookTab/StorybookTab'
+
 import '@/styles/globals.scss'
 
 const roboto = Roboto({
@@ -39,6 +41,7 @@ export default function App({ Component, pageProps }: AppProps) {
         <Topbar />
         <SearchList />
         <Component {...pageProps} />
+        <StorybookTab />
       </Provider>
     </main>
   )

@@ -24,10 +24,7 @@ function startLoading(state: SearchMovieState) {
   state.isLoading = true
 }
 
-function loadingFailed(
-  state: SearchMovieState,
-  { payload }: PayloadAction<string>
-) {
+function loadingFailed(state: SearchMovieState, { payload }: PayloadAction<string>) {
   state.isLoading = false
   state.error = payload
 }
@@ -37,19 +34,13 @@ const searchMoviesSlice = createSlice({
   initialState: initialState,
   reducers: {
     getSearchMovieStart: startLoading,
-    setFocused: (
-      state: SearchMovieState,
-      { payload }: PayloadAction<boolean>
-    ) => {
+    setFocused: (state: SearchMovieState, { payload }: PayloadAction<boolean>) => {
       state.isFocused = payload
     },
     setEmptyMovies: (state: SearchMovieState) => {
       state.movies = []
     },
-    getSearchMovieSuccess: (
-      state: SearchMovieState,
-      { payload }: PayloadAction<Movie[]>
-    ) => {
+    getSearchMovieSuccess: (state: SearchMovieState, { payload }: PayloadAction<Movie[]>) => {
       state.isLoading = false
       state.movies = payload
       state.error = null
@@ -58,13 +49,8 @@ const searchMoviesSlice = createSlice({
   }
 })
 
-export const {
-  getSearchMovieStart,
-  setFocused,
-  setEmptyMovies,
-  getSearchMovieSuccess,
-  getSearchMovieFailure
-} = searchMoviesSlice.actions
+export const { getSearchMovieStart, setFocused, setEmptyMovies, getSearchMovieSuccess, getSearchMovieFailure } =
+  searchMoviesSlice.actions
 
 export default searchMoviesSlice.reducer
 

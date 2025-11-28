@@ -15,9 +15,7 @@ type Props = {
 
 export default function FavoriteBox({ movie, className = '' }: Props) {
   const dispatch = useDispatch()
-  const isFavorite = useSelector(
-    (state: RootState) => state.favoriteMovies.movies[movie.id]
-  )
+  const isFavorite = useSelector((state: RootState) => state.favoriteMovies.movies[movie.id])
 
   const handleClick = (e: any) => {
     e.preventDefault()

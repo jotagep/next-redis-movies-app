@@ -49,11 +49,7 @@ describe('Container', () => {
 
   it('passes through additional props', () => {
     render(
-      <Container
-        data-testid="container"
-        id="test-id"
-        style={{ backgroundColor: 'red' }}
-      >
+      <Container data-testid="container" id="test-id" style={{ backgroundColor: 'red' }}>
         <div>Test content</div>
       </Container>
     )

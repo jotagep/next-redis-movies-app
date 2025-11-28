@@ -14,16 +14,12 @@ type Props = {
   className?: string
 }
 
-export default function GridMovie({
-  movies,
-  title = '',
-  className = ''
-}: Props) {
+export default function GridMovie({ movies, title = '', className = '' }: Props) {
   return (
     <Container className={className}>
-      {title && <h3 className="text-lg uppercase mb-4">{title}</h3>}
+      {title && <h3 className="mb-4 text-lg uppercase">{title}</h3>}
       {!movies ? (
-        <div className="flex justify-center items-center h-32">
+        <div className="flex h-32 items-center justify-center">
           <Spinner />
         </div>
       ) : (
@@ -32,10 +28,7 @@ export default function GridMovie({
             <li className="mb-6" key={i}>
               <div>
                 <CardMovie movie={item} />
-                <Link
-                  href={`/movies/${item.id}`}
-                  className="flex justify-center text-center mt-2"
-                >
+                <Link href={`/movies/${item.id}`} className="mt-2 flex justify-center text-center">
                   {item.title}
                 </Link>
               </div>

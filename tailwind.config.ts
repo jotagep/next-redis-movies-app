@@ -2,11 +2,7 @@ import type { Config } from 'tailwindcss'
 import defaultTheme from 'tailwindcss/defaultTheme'
 
 export const config: Config = {
-  content: [
-    'pages/**/*.{js,jsx,ts,tsx}',
-    'components/**/*.{js,jsx,ts,tsx}',
-    'features/**/*.{js,jsx,ts,tsx}'
-  ],
+  content: ['pages/**/*.{js,jsx,ts,tsx}', 'components/**/*.{js,jsx,ts,tsx}', 'features/**/*.{js,jsx,ts,tsx}'],
   theme: {
     fontFamily: {
       lead: ['var(--font-bebas-neue)', 'Arial', 'sans-serif'],

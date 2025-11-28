@@ -22,9 +22,7 @@ export default function RatingBox({ rate, className = '' }: Props) {
   }
 
   return (
-    <span
-      className={`inline-block ${bgColor} px-2 py-2 shadow-lg min-w-8 text-center rounded ${className}`}
-    >
+    <span className={`inline-block ${bgColor} min-w-8 rounded px-2 py-2 text-center shadow-lg ${className}`}>
       {rate ? rate.toFixed(1) : '-'}
     </span>
   )

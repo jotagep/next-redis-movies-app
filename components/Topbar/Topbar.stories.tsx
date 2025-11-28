@@ -3,7 +3,7 @@ import type { Meta, StoryObj } from '@storybook/nextjs'
 import Topbar from './index'
 
 const meta = {
-  title: 'Blocks/Topbar',
+  title: 'UI/Organisms/Topbar',
   component: Topbar,
   parameters: {
     layout: 'fullscreen',

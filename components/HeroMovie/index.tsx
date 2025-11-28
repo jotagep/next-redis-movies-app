@@ -16,17 +16,13 @@ type Props = {
   classContainer?: string
 }
 
-export default function HeroMovie({
-  movie,
-  children,
-  classContainer = ''
-}: Props) {
+export default function HeroMovie({ movie, children, classContainer = '' }: Props) {
   if (!movie) {
     return <Spinner />
   }
 
   return (
-    <div className={`${style.hero} pt-24 flex items-center h-screen relative`}>
+    <div className={`${style.hero} relative flex h-screen items-center pt-24`}>
       <MovieImage
         fill={true}
         sizes="100vw"

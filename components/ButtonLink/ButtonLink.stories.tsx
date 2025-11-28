@@ -3,7 +3,7 @@ import type { Meta, StoryObj } from '@storybook/nextjs'
 import ButtonLink from './ButtonLink'
 
 const meta = {
-  title: 'UI/ButtonLink',
+  title: 'UI/Atoms/ButtonLink',
   component: ButtonLink,
   parameters: {
     layout: 'centered',

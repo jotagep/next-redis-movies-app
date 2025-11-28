@@ -24,10 +24,7 @@ function startLoading(state: SelectedMoviesState) {
   state.isLoading = true
 }
 
-function loadingFailed(
-  state: SelectedMoviesState,
-  { payload }: PayloadAction<string>
-) {
+function loadingFailed(state: SelectedMoviesState, { payload }: PayloadAction<string>) {
   state.isLoading = false
   state.error = payload
 }
@@ -37,10 +34,7 @@ const selectedMoviesSlice = createSlice({
   initialState: initialState,
   reducers: {
     getSelectedMovieStart: startLoading,
-    getSelectedMovieSuccess: (
-      state: SelectedMoviesState,
-      { payload }: PayloadAction<MovieInfo>
-    ) => {
+    getSelectedMovieSuccess: (state: SelectedMoviesState, { payload }: PayloadAction<MovieInfo>) => {
       state.isLoading = false
       state.movies = { ...state.movies, [payload.id]: payload }
       state.error = null
@@ -49,11 +43,7 @@ const selectedMoviesSlice = createSlice({
   }
 })
 
-export const {
-  getSelectedMovieStart,
-  getSelectedMovieSuccess,
-  getSelectedMovieFailure
-} = selectedMoviesSlice.actions
+export const { getSelectedMovieStart, getSelectedMovieSuccess, getSelectedMovieFailure } = selectedMoviesSlice.actions
 
 export default selectedMoviesSlice.reducer
 

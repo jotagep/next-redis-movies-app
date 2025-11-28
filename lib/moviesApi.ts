@@ -1,10 +1,4 @@
-import type {
-  Cast,
-  IResponse,
-  IResponseCast,
-  Movie,
-  MovieDetailed
-} from '@/types/movies'
+import type { Cast, IResponse, IResponseCast, Movie, MovieDetailed } from '@/types/movies'
 
 import { ApiError, NetworkError, ValidationError } from './error'
 
@@ -19,10 +13,7 @@ class MoviesService {
     this.language = 'en-US'
 
     if (!this.apiKey) {
-      throw new ValidationError(
-        'NEXT_PUBLIC_MOVIES_API_KEY is required',
-        'apiKey'
-      )
+      throw new ValidationError('NEXT_PUBLIC_MOVIES_API_KEY is required', 'apiKey')
     }
   }
 
@@ -35,9 +26,7 @@ class MoviesService {
       const queryParams = new URLSearchParams({
         api_key: this.apiKey,
         language: this.language,
-        ...Object.fromEntries(
-          Object.entries(params).map(([key, value]) => [key, String(value)])
-        )
+        ...Object.fromEntries(Object.entries(params).map(([key, value]) => [key, String(value)]))
       })
 
       const url = `${this.baseUrl}${path}?${queryParams.toString()}`

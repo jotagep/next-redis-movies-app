@@ -67,11 +67,7 @@ describe('GridMovie', () => {
     render(<GridMovie movies={mockMovies} title="Test Title" />)
 
     expect(screen.getByText('Test Title')).toBeInTheDocument()
-    expect(screen.getByText('Test Title')).toHaveClass(
-      'text-lg',
-      'uppercase',
-      'mb-4'
-    )
+    expect(screen.getByText('Test Title')).toHaveClass('text-lg', 'uppercase', 'mb-4')
   })
 
   it('applies custom className to container', () => {

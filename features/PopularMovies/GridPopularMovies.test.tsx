@@ -10,13 +10,7 @@ import { Movie } from '@/types/movies'
 
 // Mock the GridMovie component
 jest.mock('@/components/GridMovie/GridMovie', () => {
-  return function MockGridMovie({
-    movies,
-    title
-  }: {
-    movies: any[]
-    title: string
-  }) {
+  return function MockGridMovie({ movies, title }: { movies: any[]; title: string }) {
     return (
       <div data-testid="grid-movie">
         <h2>{title}</h2>

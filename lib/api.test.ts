@@ -26,9 +26,7 @@ describe('VerflixApi', () => {
       const result = await verflixApi.getMovieInfo(1)
 
       expect(result).toEqual(mockData)
-      expect(global.fetch).toHaveBeenCalledWith(
-        expect.stringContaining('/api/movie?id=1')
-      )
+      expect(global.fetch).toHaveBeenCalledWith(expect.stringContaining('/api/movie?id=1'))
     })
 
     it('should throw ValidationError if id is invalid', async () => {
@@ -37,9 +35,7 @@ describe('VerflixApi', () => {
     })
 
     it('should throw NetworkError when fetch fails', async () => {
-      ;(global.fetch as jest.Mock).mockRejectedValueOnce(
-        new Error('Network failure')
-      )
+      ;(global.fetch as jest.Mock).mockRejectedValueOnce(new Error('Network failure'))
 
       await expect(verflixApi.getMovieInfo(1)).rejects.toThrow(NetworkError)
     })

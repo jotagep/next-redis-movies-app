@@ -1,13 +1,10 @@
-import { Meta, Title, Subtitle, Description } from '@storybook/blocks'
+import { Meta, Title, Subtitle, Description } from '@storybook/addon-docs/blocks'
 
-<Meta title="Introducción/Bienvenida" />
+<Meta title="Introducción" />
 
 # Bienvenido a Verflix Storybook 🎬
 
-<Subtitle>
-  Biblioteca de componentes para la aplicación de películas Next Redis Movies
-  App
-</Subtitle>
+<Subtitle>Biblioteca de componentes para la aplicación de películas Next Redis Movies App</Subtitle>
 
 ## 🎯 Propósito
 
@@ -18,38 +15,41 @@ Este Storybook contiene todos los componentes de UI utilizados en la aplicación
 - **Documentar** el comportamiento y las props de cada componente
 - **Desarrollar** nuevos componentes sin necesidad de ejecutar toda la aplicación
 
-## 📦 Estructura de Componentes
+## 📦 Componentes Disponibles
 
-### Components
+### Components (11 componentes)
 
 Componentes reutilizables y genéricos:
 
 - **ButtonLink**: Navegación entre páginas
-- **Container**: Layout wrapper
-- **RatingBox**: Visualización de puntuaciones
-- **Spinner**: Indicadores de carga
-- **MovieImage**: Imágenes con fallback
-- **CardMovie**: Tarjetas de película
-- **HeroMovie**: Sección hero
-- **Topbar**: Navegación principal
+- **CardMovie**: Tarjetas de película con información básica
+- **Container**: Layout wrapper para contenido
+- **GridMovie**: Grid responsivo para listados de películas
+- **HeroMovie**: Sección hero con película destacada
+- **Loading**: Indicadores de carga de contenido
+- **MovieImage**: Imágenes optimizadas con fallback
+- **RatingBox**: Visualización de puntuaciones y ratings
+- **Spinner**: Spinner animado de carga
+- **StorybookTab**: Componente de pestañas para Storybook
+- **Topbar**: Barra de navegación principal
 
-### Features
+### Features (2 componentes con stories)
 
 Componentes específicos de funcionalidades:
 
-- **FavoriteMovies**: Gestión de favoritos
-- **SearchMovies**: Búsqueda de películas
-- **PopularMovies**: Películas populares
-- **SelectedMovie**: Detalle de película
+- **HeartIcon** (FavoriteMovies): Icono para gestión de favoritos
+- **SearchIcon** (SearchMovies): Icono de búsqueda de películas
 
-## 🛠️ Tecnologías
+> **Nota**: Las features completas incluyen PopularMovies y SelectedMovie con sus componentes y lógica Redux
 
-- **React 18** con TypeScript
-- **Next.js 14** (Pages Router)
-- **Tailwind CSS** para estilos utility-first
-- **SCSS Modules** para estilos encapsulados
+## 🛠️ Stack Tecnológico
+
+- **React 18** con **TypeScript 5**
+- **Next.js 14.1.0** (Pages Router)
 - **Redux Toolkit** para gestión de estado
-- **Jest** para testing
+- **Tailwind CSS** + **SCSS Modules** para estilos
+- **Upstash Redis** para caché
+- **Jest** + **React Testing Library** para testing
 
 ## 📝 Cómo Usar
 
@@ -57,20 +57,12 @@ Componentes específicos de funcionalidades:
 2. Selecciona un componente para ver sus variantes
 3. Usa los controles en el panel inferior para modificar props
 4. Revisa la documentación automática en la pestaña "Docs"
+5. Prueba la accesibilidad con el addon A11y
 
-## 🚀 Comenzar
+## 🔗 Enlaces
 
-Para ejecutar Storybook localmente:
-
-\`\`\`bash
-npm run storybook
-\`\`\`
-
-Para construir una versión estática:
-
-\`\`\`bash
-npm run build-storybook
-\`\`\`
+- **Demo en vivo**: [verflix.vercel.app](https://verflix.vercel.app/)
+- **API**: [The Movie Database](https://developers.themoviedb.org/3/)
 
 ---
 

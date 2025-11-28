@@ -8,23 +8,14 @@ import { Movie } from '@/types/movies'
 // Mock the moviesApi module
 jest.mock('@/lib/moviesApi', () => ({
   moviesApi: {
-    getImage: jest.fn(
-      (path, size) => `https://image.tmdb.org/t/p/${size}${path}`
-    )
+    getImage: jest.fn((path, size) => `https://image.tmdb.org/t/p/${size}${path}`)
   }
 }))
 
 // Mock the MovieImage component
 jest.mock('@/components/MovieImage/MovieImage', () => {
   return function MockMovieImage({ src, alt, className }: any) {
-    return (
-      <img
-        src={src}
-        alt={alt}
-        className={className}
-        data-testid="movie-image"
-      />
-    )
+    return <img src={src} alt={alt} className={className} data-testid="movie-image" />
   }
 })
 
@@ -82,10 +73,7 @@ describe('CardMovie', () => {
 
     const image = screen.getByTestId('movie-image')
     expect(image).toHaveAttribute('alt', 'Test Movie')
-    expect(image).toHaveAttribute(
-      'src',
-      'https://image.tmdb.org/t/p/w500/test-backdrop.jpg'
-    )
+    expect(image).toHaveAttribute('src', 'https://image.tmdb.org/t/p/w500/test-backdrop.jpg')
   })
 
   it('renders movie card with poster image when no backdrop', () => {
@@ -93,10 +81,7 @@ describe('CardMovie', () => {
     render(<CardMovie movie={movieWithoutBackdrop} />)
 
     const image = screen.getByTestId('movie-image')
-    expect(image).toHaveAttribute(
-      'src',
-      'https://image.tmdb.org/t/p/w500/test-poster.jpg'
-    )
+    expect(image).toHaveAttribute('src', 'https://image.tmdb.org/t/p/w500/test-poster.jpg')
   })
 
   it('renders rating box with correct rate', () => {

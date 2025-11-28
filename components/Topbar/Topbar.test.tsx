@@ -102,12 +102,7 @@ describe('Topbar', () => {
     expect(nav).toBeInTheDocument()
 
     const list = screen.getByRole('list')
-    expect(list).toHaveClass(
-      'h-full',
-      'flex',
-      'items-center',
-      'justify-between'
-    )
+    expect(list).toHaveClass('h-full', 'flex', 'items-center', 'justify-between')
 
     const listItems = screen.getAllByRole('listitem')
     expect(listItems).toHaveLength(3)

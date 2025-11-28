@@ -18,12 +18,10 @@ export default function Topbar() {
   const changeTopbar = scroll.y > TOPBAR_ANIMATION_HEIGHT
 
   return (
-    <header
-      className={`${style.header} ${changeTopbar ? style['header-full'] : ''}`}
-    >
+    <header className={`${style.header} ${changeTopbar ? style['header-full'] : ''}`}>
       <Container className="h-full">
         <nav className="h-full">
-          <ul className="h-full flex items-center justify-between">
+          <ul className="flex h-full items-center justify-between">
             <li>
               <Link href="/">
                 <span className={style.title}>Verflix</span>

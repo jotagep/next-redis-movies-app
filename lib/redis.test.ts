@@ -76,10 +76,7 @@ describe('Redis Module', () => {
       const result = await validate()
 
       expect(result).toBe(false)
-      expect(consoleErrorSpy).toHaveBeenCalledWith(
-        'Error conectando a Redis:',
-        'Connection failed'
-      )
+      expect(consoleErrorSpy).toHaveBeenCalledWith('Error conectando a Redis:', 'Connection failed')
 
       consoleErrorSpy.mockRestore()
     })

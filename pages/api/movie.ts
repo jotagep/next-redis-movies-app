@@ -5,10 +5,7 @@ import redis, { validateRedisConnection } from '@/lib/redis'
 
 import type { MovieInfo } from '@/types/movies'
 
-export default async function handler(
-  req: NextApiRequest,
-  res: NextApiResponse<MovieInfo | void>
-) {
+export default async function handler(req: NextApiRequest, res: NextApiResponse<MovieInfo | void>) {
   const { id } = req.query as { id: string }
   const idNumber = parseInt(id)
 

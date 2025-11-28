@@ -6,28 +6,13 @@ import MovieImage from '@/components/MovieImage/MovieImage'
 // Mock next/image
 jest.mock('next/image', () => {
   return function MockImage({ src, alt, onError, ...props }: any) {
-    return (
-      <img
-        src={src}
-        alt={alt}
-        data-testid="movie-image"
-        onError={onError}
-        {...props}
-      />
-    )
+    return <img src={src} alt={alt} data-testid="movie-image" onError={onError} {...props} />
   }
 })
 
 describe('MovieImage', () => {
   it('renders image with correct src and alt', () => {
-    render(
-      <MovieImage
-        src="/test-image.jpg"
-        alt="Test movie"
-        width={300}
-        height={200}
-      />
-    )
+    render(<MovieImage src="/test-image.jpg" alt="Test movie" width={300} height={200} />)
 
     const image = screen.getByTestId('movie-image')
     expect(image).toHaveAttribute('src', '/test-image.jpg')
@@ -37,14 +22,7 @@ describe('MovieImage', () => {
   })
 
   it('handles image error by setting fallback src', async () => {
-    render(
-      <MovieImage
-        src="/test-image.jpg"
-        alt="Test movie"
-        width={300}
-        height={200}
-      />
-    )
+    render(<MovieImage src="/test-image.jpg" alt="Test movie" width={300} height={200} />)
 
     const image = screen.getByTestId('movie-image')
 
@@ -57,13 +35,7 @@ describe('MovieImage', () => {
   })
 
   it('passes through additional props', () => {
-    render(
-      <MovieImage
-        src="/test-image.jpg"
-        alt="Test movie"
-        className="custom-class"
-      />
-    )
+    render(<MovieImage src="/test-image.jpg" alt="Test movie" className="custom-class" />)
 
     const image = screen.getByTestId('movie-image')
     expect(image).toHaveClass('custom-class')

@@ -9,10 +9,7 @@ import { useAppDispatch } from '@/store/store'
 import { fetchPopularMovies } from './popularMoviesSlice'
 
 export default function LoadMore() {
-  const { isLoading, pagesLoaded } = useSelector(
-    (state: RootState) => state.popularMovies,
-    shallowEqual
-  )
+  const { isLoading, pagesLoaded } = useSelector((state: RootState) => state.popularMovies, shallowEqual)
 
   const loader = useRef<HTMLDivElement>(null)
   const dispatch = useAppDispatch()
@@ -54,7 +51,7 @@ export default function LoadMore() {
   }, [loader, loadMore])
 
   return (
-    <div className="h-16 flex justify-center" ref={loader}>
+    <div className="flex h-16 justify-center" ref={loader}>
       {isLoading && <Spinner />}
     </div>
   )

@@ -16,9 +16,7 @@ export default function ButtonLink({ children, to, className = '' }: Props) {
   return (
     <Link
       href={to}
-      className={`text-white font-normal border px-4 py-2 rounded 
-        hover:bg-netflix hover:border-netflix transition-colors duration-200 
-        ease-out ${className} ${isActive ? activeClassName : 'border-white'}`}
+      className={`rounded border px-4 py-2 font-normal text-white transition-colors duration-200 ease-out hover:border-netflix hover:bg-netflix ${className} ${isActive ? activeClassName : 'border-white'}`}
     >
       {children}
     </Link>

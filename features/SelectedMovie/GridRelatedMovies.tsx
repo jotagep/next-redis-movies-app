@@ -14,7 +14,7 @@ export default function GridRelatedMovies({ movies }: Props) {
   if (!recommendedMovies.length) return null
 
   return (
-    <section className="-mt-20 relative">
+    <section className="relative -mt-20">
       <GridMovie movies={recommendedMovies} title="Recommmended Movies" />
     </section>
   )

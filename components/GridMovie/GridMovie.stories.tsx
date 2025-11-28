@@ -8,8 +8,7 @@ const mockMovies: Movie[] = [
   {
     id: 872585,
     title: 'Oppenheimer',
-    overview:
-      'La historia del físico teórico J. Robert Oppenheimer y su papel en el desarrollo de la bomba atómica.',
+    overview: 'La historia del físico teórico J. Robert Oppenheimer y su papel en el desarrollo de la bomba atómica.',
     poster_path: '/8Gxv8gSFCU0XGDykEGv7zR1n2ua.jpg',
     backdrop_path: '/628Dep6AxEtDxjZoGP78TsOxYbK.jpg',
     vote_average: 7.1,
@@ -18,8 +17,7 @@ const mockMovies: Movie[] = [
   {
     id: 346698,
     title: 'Barbie',
-    overview:
-      'Barbie vive en Barbieland, donde todo es ideal y lleno de música y color.',
+    overview: 'Barbie vive en Barbieland, donde todo es ideal y lleno de música y color.',
     poster_path: '/iuFNMS8U5cb6xfzi51Dbkovj7vM.jpg',
     backdrop_path: '/nHf61UzkfFno5X1ofIhugCPus2R.jpg',
     vote_average: 7.2,
@@ -46,8 +44,7 @@ const mockMovies: Movie[] = [
   {
     id: 569094,
     title: 'Spider-Man: Across the Spider-Verse',
-    overview:
-      'Miles Morales regresa para la próxima aventura del Spider-Verse.',
+    overview: 'Miles Morales regresa para la próxima aventura del Spider-Verse.',
     poster_path: '/8Vt6mWEReuy4Of61Lnj5Xj704m8.jpg',
     backdrop_path: '/xJHokMbljvjADYdit5fK5VQsXEG.jpg',
     vote_average: 8.4,
@@ -65,8 +62,7 @@ const mockMovies: Movie[] = [
   {
     id: 502356,
     title: 'The Super Mario Bros. Movie',
-    overview:
-      'Mario y Luigi viajan por el Reino Champiñón para salvar a la princesa Peach.',
+    overview: 'Mario y Luigi viajan por el Reino Champiñón para salvar a la princesa Peach.',
     poster_path: '/qNBAXBIQlnOThrVvA6mA2B5ggV6.jpg',
     backdrop_path: '/9n2tJBplPbgR2ca05hS5CKXwP2c.jpg',
     vote_average: 7.7,
@@ -84,7 +80,7 @@ const mockMovies: Movie[] = [
 ]
 
 const meta = {
-  title: 'Blocks/GridMovie',
+  title: 'UI/Organisms/GridMovie',
   component: GridMovie,
   parameters: {
     layout: 'fullscreen',
