@@ -1,4 +1,4 @@
-import { Movie, MovieDetailed } from '@/types/movies'
+import { Movie, MovieDetailed, MovieInfo } from '@/types/movies'
 
 export const mockMovie: Movie = {
   id: 123,
@@ -101,3 +101,16 @@ export const mockMoviesList: Movie[] = [
     original_name: 'John Wick: Chapter 4'
   }
 ]
+
+export const mockMovieInfo: MovieInfo = {
+  ...mockMovieDetailed,
+  cast: [
+    { name: 'Cillian Murphy', character: 'J. Robert Oppenheimer' },
+    { name: 'Emily Blunt', character: 'Kitty Oppenheimer' },
+    { name: 'Matt Damon', character: 'Leslie Groves' },
+    { name: 'Robert Downey Jr.', character: 'Lewis Strauss' },
+    { name: 'Florence Pugh', character: 'Jean Tatlock' },
+    { name: 'Josh Hartnett', character: 'Ernest Lawrence' }
+  ],
+  related_movies: mockMoviesList.slice(1, 5)
+}

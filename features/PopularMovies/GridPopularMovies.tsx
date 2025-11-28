@@ -5,7 +5,11 @@ import GridMovie from '@/components/GridMovie/GridMovie'
 
 import type { RootState } from '@/store/rootReducer'
 
-export default function GridPopularMovies() {
+type GridPopularMoviesProps = {
+  classname?: string
+}
+
+export default function GridPopularMovies({ classname = '' }: GridPopularMoviesProps) {
   const movies = useSelector(
     (state: RootState) => state.popularMovies.movies,
     (prev, next) => prev.length === next.length
@@ -13,7 +17,7 @@ export default function GridPopularMovies() {
   const [_, ...restMovies] = movies
 
   return (
-    <section className="relative -mt-20">
+    <section className={`relative ${classname}`}>
       <GridMovie movies={restMovies} title="Popular Movies" />
     </section>
   )

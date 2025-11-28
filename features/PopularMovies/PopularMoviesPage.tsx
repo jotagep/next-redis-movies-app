@@ -8,7 +8,7 @@ export default function PopularMoviesPage() {
   return (
     <div>
       <HeroPopularMovie />
-      <GridPopularMovies />
+      <GridPopularMovies classname="-mt-20" />
       <LoadMore />
     </div>
   )
