@@ -11,6 +11,8 @@ import rootReducer from '@/store/rootReducer'
 
 import { Movie } from '@/types/movies'
 
+import { mockMoviesList } from '@/mocks/movies'
+
 // Mock the moviesApi module
 jest.mock('@/lib/moviesApi', () => ({
   moviesApi: {
@@ -18,26 +20,11 @@ jest.mock('@/lib/moviesApi', () => ({
   }
 }))
 
-const mockMovies: Movie[] = [
-  {
-    id: 1,
-    title: 'Test Movie 1',
-    backdrop_path: '/test1.jpg',
-    poster_path: '/test1-poster.jpg',
-    vote_average: 8.5,
-    overview: 'Test overview 1',
-    original_name: 'Test Movie 1'
-  },
-  {
-    id: 2,
-    title: 'Test Movie 2',
-    backdrop_path: '/test2.jpg',
-    poster_path: '/test2-poster.jpg',
-    vote_average: 7.5,
-    overview: 'Test overview 2',
-    original_name: 'Test Movie 2'
-  }
-]
+const mockMovies: Movie[] = mockMoviesList.slice(0, 2).map((movie, index) => ({
+  ...movie,
+  id: index + 1,
+  title: `Test Movie ${index + 1}`
+}))
 
 const setupStore = () => {
   return configureStore({

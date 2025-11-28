@@ -1,29 +1,9 @@
 import type { Meta, StoryObj } from '@storybook/nextjs'
 import { action } from 'storybook/actions'
 
-import type { Movie } from '@/types/movies'
-
 import FavoriteBox from './FavoriteBox'
 
-const mockMovie: Movie = {
-  id: 1,
-  title: 'Mock Movie',
-  original_name: 'Mock Movie',
-  vote_average: 8.5,
-  overview: 'A mock movie for Storybook.',
-  poster_path: '/mock.jpg',
-  backdrop_path: '/mock-bg.jpg'
-}
-
-const mockMovie2: Movie = {
-  id: 2,
-  title: 'Mock Movie 2',
-  original_name: 'Mock Movie 2',
-  vote_average: 4.5,
-  overview: 'A mock movie 2 for Storybook.',
-  poster_path: '/mock.jpg',
-  backdrop_path: '/mock-bg.jpg'
-}
+import { mockMoviesList } from '@/mocks/movies'
 
 type Story = StoryObj<typeof FavoriteBox>
 
@@ -40,7 +20,7 @@ const meta: Meta<typeof FavoriteBox> = {
     reduxState: {
       favoriteMovies: {
         movies: {
-          [mockMovie2.id]: mockMovie2
+          [mockMoviesList[1].id]: mockMoviesList[1]
         }
       }
     },
@@ -54,7 +34,7 @@ const meta: Meta<typeof FavoriteBox> = {
     ]
   },
   argTypes: {
-    movie: mockMovie,
+    movie: mockMoviesList[0],
     className: {
       description: 'Clases CSS adicionales'
     }
@@ -65,14 +45,14 @@ export default meta
 
 export const NotFavorite: Story = {
   args: {
-    movie: mockMovie,
+    movie: mockMoviesList[0],
     className: 'w-12 h-12'
   }
 }
 
 export const IsFavorite: Story = {
   args: {
-    movie: mockMovie2,
+    movie: mockMoviesList[1],
     className: 'w-12 h-12'
   }
 }

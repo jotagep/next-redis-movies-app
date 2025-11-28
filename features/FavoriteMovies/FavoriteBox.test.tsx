@@ -1,22 +1,14 @@
 import React from 'react'
 import { Provider } from 'react-redux'
 import { configureStore } from '@reduxjs/toolkit'
-import { fireEvent, render, screen } from '@testing-library/react'
+import { fireEvent, render } from '@testing-library/react'
 
 import type { Movie } from '@/types/movies'
 
 import FavoriteBox from './FavoriteBox'
 import favoriteMoviesReducer from './favoriteMoviesSlice'
 
-const mockMovie: Movie = {
-  id: 1,
-  title: 'Test Movie',
-  original_name: 'Test Movie Original',
-  vote_average: 8.5,
-  overview: 'Test overview',
-  poster_path: '/test-poster.jpg',
-  backdrop_path: '/test-backdrop.jpg'
-}
+import { mockMovieDetailed } from '@/mocks/movies'
 
 const createMockStore = (initialFavorites: { [key: number]: Movie } = {}) => {
   return configureStore({
@@ -46,7 +38,7 @@ describe('FavoriteBox', () => {
     const store = createMockStore()
     const { container } = render(
       <Provider store={store}>
-        <FavoriteBox movie={mockMovie} />
+        <FavoriteBox movie={mockMovieDetailed} />
       </Provider>
     )
 
@@ -55,10 +47,10 @@ describe('FavoriteBox', () => {
   })
 
   it('should render with filled heart when movie is favorite', () => {
-    const store = createMockStore({ [mockMovie.id]: mockMovie })
+    const store = createMockStore({ [mockMovieDetailed.id]: mockMovieDetailed })
     const { container } = render(
       <Provider store={store}>
-        <FavoriteBox movie={mockMovie} />
+        <FavoriteBox movie={mockMovieDetailed} />
       </Provider>
     )
 
@@ -70,7 +62,7 @@ describe('FavoriteBox', () => {
     const store = createMockStore()
     const { container } = render(
       <Provider store={store}>
-        <FavoriteBox movie={mockMovie} />
+        <FavoriteBox movie={mockMovieDetailed} />
       </Provider>
     )
 
@@ -82,14 +74,14 @@ describe('FavoriteBox', () => {
 
     // Check if movie is now in favorites
     const state = store.getState()
-    expect(state.favoriteMovies.movies[mockMovie.id]).toEqual(mockMovie)
+    expect(state.favoriteMovies.movies[mockMovieDetailed.id]).toEqual(mockMovieDetailed)
   })
 
   it('should remove favorite when clicked on already favorited movie', () => {
-    const store = createMockStore({ [mockMovie.id]: mockMovie })
+    const store = createMockStore({ [mockMovieDetailed.id]: mockMovieDetailed })
     const { container } = render(
       <Provider store={store}>
-        <FavoriteBox movie={mockMovie} />
+        <FavoriteBox movie={mockMovieDetailed} />
       </Provider>
     )
 
@@ -101,7 +93,7 @@ describe('FavoriteBox', () => {
 
     // Check if movie is removed from favorites
     const state = store.getState()
-    expect(state.favoriteMovies.movies[mockMovie.id]).toBeUndefined()
+    expect(state.favoriteMovies.movies[mockMovieDetailed.id]).toBeUndefined()
   })
 
   it('should apply custom className', () => {
@@ -109,7 +101,7 @@ describe('FavoriteBox', () => {
     const customClassName = 'custom-class'
     const { container } = render(
       <Provider store={store}>
-        <FavoriteBox movie={mockMovie} className={customClassName} />
+        <FavoriteBox movie={mockMovieDetailed} className={customClassName} />
       </Provider>
     )
 
@@ -121,7 +113,7 @@ describe('FavoriteBox', () => {
     const store = createMockStore()
     const { container } = render(
       <Provider store={store}>
-        <FavoriteBox movie={mockMovie} />
+        <FavoriteBox movie={mockMovieDetailed} />
       </Provider>
     )
 

@@ -3,7 +3,7 @@ import { render, screen } from '@testing-library/react'
 
 import CardMovie from '@/components/CardMovie'
 
-import { Movie } from '@/types/movies'
+import { mockMovie } from '@/mocks/movies'
 
 jest.mock('@/lib/moviesApi', () => ({
   moviesApi: {
@@ -42,16 +42,6 @@ jest.mock('@/components/Spinner/Spinner', () => {
     return <div data-testid="spinner">Loading...</div>
   }
 })
-
-const mockMovie: Movie = {
-  id: 123,
-  title: 'Test Movie',
-  backdrop_path: '/test-backdrop.jpg',
-  poster_path: '/test-poster.jpg',
-  vote_average: 8.5,
-  overview: 'Test movie overview',
-  original_name: 'Test Movie'
-}
 
 describe('CardMovie', () => {
   it('renders spinner when movie is null', () => {

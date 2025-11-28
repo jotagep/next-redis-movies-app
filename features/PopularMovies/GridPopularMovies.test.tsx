@@ -8,6 +8,8 @@ import popularMoviesReducer from '@/features/PopularMovies/popularMoviesSlice'
 
 import { Movie } from '@/types/movies'
 
+import { mockMoviesList } from '@/mocks/movies'
+
 // Mock the GridMovie component
 jest.mock('@/components/GridMovie/GridMovie', () => {
   return function MockGridMovie({ movies, title }: { movies: any[]; title: string }) {
@@ -25,35 +27,11 @@ jest.mock('@/components/GridMovie/GridMovie', () => {
   }
 })
 
-const mockMovies: Movie[] = [
-  {
-    id: 1,
-    title: 'Hero Movie',
-    backdrop_path: '/hero.jpg',
-    poster_path: '/hero-poster.jpg',
-    vote_average: 9.0,
-    overview: 'Hero movie overview',
-    original_name: 'Hero Movie'
-  },
-  {
-    id: 2,
-    title: 'Popular Movie 1',
-    backdrop_path: '/movie1.jpg',
-    poster_path: '/movie1-poster.jpg',
-    vote_average: 8.5,
-    overview: 'Popular movie 1 overview',
-    original_name: 'Popular Movie 1'
-  },
-  {
-    id: 3,
-    title: 'Popular Movie 2',
-    backdrop_path: '/movie2.jpg',
-    poster_path: '/movie2-poster.jpg',
-    vote_average: 7.5,
-    overview: 'Popular movie 2 overview',
-    original_name: 'Popular Movie 2'
-  }
-]
+const mockMovies: Movie[] = mockMoviesList.slice(0, 3).map((movie, index) => ({
+  ...movie,
+  id: index + 1,
+  title: index === 0 ? 'Hero Movie' : `Popular Movie ${index}`
+}))
 
 const createTestStore = (initialState = {}) => {
   return configureStore({

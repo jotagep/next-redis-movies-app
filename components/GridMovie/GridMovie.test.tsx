@@ -5,6 +5,8 @@ import GridMovie from '@/components/GridMovie/GridMovie'
 
 import { Movie } from '@/types/movies'
 
+import { mockMoviesList } from '@/mocks/movies'
+
 jest.mock('@/components/CardMovie', () => {
   return function MockCardMovie({ movie }: { movie: Movie }) {
     return <div data-testid="card-movie">{movie.title}</div>
@@ -21,26 +23,11 @@ jest.mock('@/components/Container/Container', () => {
   }
 })
 
-const mockMovies: Movie[] = [
-  {
-    id: 1,
-    title: 'Movie 1',
-    backdrop_path: '/backdrop1.jpg',
-    poster_path: '/poster1.jpg',
-    vote_average: 8.5,
-    overview: 'Overview 1',
-    original_name: 'Movie 1'
-  },
-  {
-    id: 2,
-    title: 'Movie 2',
-    backdrop_path: '/backdrop2.jpg',
-    poster_path: '/poster2.jpg',
-    vote_average: 7.2,
-    overview: 'Overview 2',
-    original_name: 'Movie 2'
-  }
-]
+const mockMovies: Movie[] = mockMoviesList.slice(0, 2).map((movie, index) => ({
+  ...movie,
+  id: index + 1,
+  title: `Movie ${index + 1}`
+}))
 
 describe('GridMovie', () => {
   it('renders spinner when movies is undefined', () => {
