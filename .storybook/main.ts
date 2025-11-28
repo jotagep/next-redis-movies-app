@@ -9,7 +9,13 @@ const config: StorybookConfig = {
       mdx: { mode: 'mdx3' }
     }
   },
-  staticDirs: ['../public']
+  staticDirs: ['../public'],
+  env: (config) => {
+    if (config && !config.NEXT_PUBLIC_MOVIES_API_KEY) {
+      config.NEXT_PUBLIC_MOVIES_API_KEY = process.env.NEXT_PUBLIC_MOVIES_API_KEY || 'mock-api-key'
+    }
+    return config
+  }
 }
 
 export default config
