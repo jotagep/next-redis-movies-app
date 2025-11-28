@@ -22,7 +22,8 @@ const customJestConfig = {
     'hooks/**/*.{js,jsx,ts,tsx}',
     '!**/*.d.ts',
     '!**/node_modules/**',
-    '!**/__tests__/**'
+    '!**/__tests__/**',
+    '!**/*.stories.{js,jsx,ts,tsx}',
   ]
 }
 
