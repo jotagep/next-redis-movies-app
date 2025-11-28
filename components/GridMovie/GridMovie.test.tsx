@@ -5,14 +5,12 @@ import GridMovie from '@/components/GridMovie/GridMovie'
 
 import { Movie } from '@/types/movies'
 
-// Mock the CardMovie component
 jest.mock('@/components/CardMovie', () => {
   return function MockCardMovie({ movie }: { movie: Movie }) {
     return <div data-testid="card-movie">{movie.title}</div>
   }
 })
 
-// Mock the Container component
 jest.mock('@/components/Container/Container', () => {
   return function MockContainer({ children, className }: any) {
     return (

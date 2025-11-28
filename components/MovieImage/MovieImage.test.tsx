@@ -3,7 +3,6 @@ import { act, render, screen } from '@testing-library/react'
 
 import MovieImage from '@/components/MovieImage/MovieImage'
 
-// Mock next/image
 jest.mock('next/image', () => {
   return function MockImage({ src, alt, onError, ...props }: any) {
     return <img src={src} alt={alt} data-testid="movie-image" onError={onError} {...props} />

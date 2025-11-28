@@ -5,21 +5,18 @@ import CardMovie from '@/components/CardMovie'
 
 import { Movie } from '@/types/movies'
 
-// Mock the moviesApi module
 jest.mock('@/lib/moviesApi', () => ({
   moviesApi: {
     getImage: jest.fn((path, size) => `https://image.tmdb.org/t/p/${size}${path}`)
   }
 }))
 
-// Mock the MovieImage component
 jest.mock('@/components/MovieImage/MovieImage', () => {
   return function MockMovieImage({ src, alt, className }: any) {
     return <img src={src} alt={alt} className={className} data-testid="movie-image" />
   }
 })
 
-// Mock the RatingBox component
 jest.mock('@/components/RatingBox/RatingBox', () => {
   return function MockRatingBox({ rate, className }: any) {
     return (
@@ -30,7 +27,6 @@ jest.mock('@/components/RatingBox/RatingBox', () => {
   }
 })
 
-// Mock the FavoriteBox component
 jest.mock('@/features/FavoriteMovies/FavoriteBox', () => {
   return function MockFavoriteBox({ movie, className }: any) {
     return (
@@ -41,7 +37,6 @@ jest.mock('@/features/FavoriteMovies/FavoriteBox', () => {
   }
 })
 
-// Mock the Spinner component
 jest.mock('@/components/Spinner/Spinner', () => {
   return function MockSpinner() {
     return <div data-testid="spinner">Loading...</div>

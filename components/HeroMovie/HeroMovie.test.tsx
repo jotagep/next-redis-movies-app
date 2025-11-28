@@ -5,21 +5,18 @@ import HeroMovie from '@/components/HeroMovie'
 
 import { Movie } from '@/types/movies'
 
-// Mock the moviesApi module
 jest.mock('@/lib/moviesApi', () => ({
   moviesApi: {
     getImage: jest.fn((path, size) => `https://image.tmdb.org/t/p/${size}${path}`)
   }
 }))
 
-// Mock the MovieImage component
 jest.mock('@/components/MovieImage/MovieImage', () => {
   return function MockMovieImage({ src, alt, className }: any) {
     return <img src={src} alt={alt} className={className} data-testid="movie-image" />
   }
 })
 
-// Mock the Container component
 jest.mock('@/components/Container/Container', () => {
   return function MockContainer({ children, className }: any) {
     return (
@@ -30,7 +27,6 @@ jest.mock('@/components/Container/Container', () => {
   }
 })
 
-// Mock the Spinner component
 jest.mock('@/components/Spinner/Spinner', () => {
   return function MockSpinner() {
     return <div data-testid="spinner">Loading...</div>
