@@ -10,9 +10,9 @@ import useScrollY from '@/hooks/useScrollY'
 
 import style from './style.module.scss'
 
-export const TOPBAR_ANIMATION_HEIGHT = 150
+import { TOPBAR_ANIMATION_HEIGHT } from '@/config/constants'
 
-export default function Topbar() {
+export default function Topbar({ children }: React.PropsWithChildren) {
   const scroll = useScrollY()
 
   const changeTopbar = scroll.y > TOPBAR_ANIMATION_HEIGHT
@@ -27,9 +27,7 @@ export default function Topbar() {
                 <span className={style.title}>Verflix</span>
               </Link>
             </li>
-            <li>
-              <SearchBar />
-            </li>
+            <li>{children}</li>
             <li>
               <ButtonLink to={'/favorites'}>Favorites</ButtonLink>
             </li>

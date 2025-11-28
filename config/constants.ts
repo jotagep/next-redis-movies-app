@@ -1,0 +1,1 @@
+export const TOPBAR_ANIMATION_HEIGHT = 150

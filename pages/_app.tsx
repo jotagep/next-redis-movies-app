@@ -5,6 +5,7 @@ import Head from 'next/head'
 
 import Topbar from '@/components/Topbar'
 
+import SearchBar from '@/features/SearchMovies/SearchBar'
 import SearchList from '@/features/SearchMovies/SearchList'
 
 import store from '@/store/store'
@@ -38,7 +39,9 @@ export default function App({ Component, pageProps }: AppProps) {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <Provider store={store}>
-        <Topbar />
+        <Topbar>
+          <SearchBar />
+        </Topbar>
         <SearchList />
         <Component {...pageProps} />
         <StorybookTab />
