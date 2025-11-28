@@ -3,7 +3,6 @@ import { render, screen } from '@testing-library/react'
 
 import Spinner from '@/components/Spinner/Spinner'
 
-// Mock react-loading
 jest.mock('react-loading', () => {
   return function MockReactLoading({ type, color, width, height, 'data-testid': testId }: any) {
     return <div data-testid={testId} data-type={type} data-color={color} data-width={width} data-height={height} />
