@@ -1,6 +1,7 @@
 import type { Preview } from '@storybook/nextjs'
 import { Provider } from 'react-redux'
-import store from '../store/store'
+import { createMockStore } from './mockStore'
+
 import '../styles/globals.scss'
 
 const preview: Preview = {
@@ -34,11 +35,18 @@ const preview: Preview = {
     backgrounds: { value: 'dark' }
   },
   decorators: [
-    (Story) => (
-      <Provider store={store}>
-        <Story />
-      </Provider>
-    )
+    (Story, context) => {
+      const initialState = context.parameters.reduxState || {}
+      const middleware = context.parameters.middleware || []
+
+      const store = createMockStore(initialState, middleware)
+
+      return (
+        <Provider store={store}>
+          <Story />
+        </Provider>
+      )
+    }
   ],
   tags: ['autodocs']
 }

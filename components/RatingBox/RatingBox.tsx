@@ -1,5 +1,7 @@
 import React from 'react'
 
+import { FILM_RATES } from '@/config/constants'
+
 type Props = {
   rate: number
   className?: string
@@ -7,11 +9,11 @@ type Props = {
 
 export default function RatingBox({ rate, className = '' }: Props) {
   let bgColor = ''
-  if (rate < 5.0) {
+  if (rate < FILM_RATES.LOW) {
     bgColor = 'bg-red-600'
-  } else if (rate < 6.5) {
+  } else if (rate < FILM_RATES.AVERAGE) {
     bgColor = 'bg-gray-700'
-  } else if (rate < 8.0) {
+  } else if (rate < FILM_RATES.GOOD) {
     bgColor = 'bg-green-500'
   } else {
     bgColor = 'bg-green-700'
