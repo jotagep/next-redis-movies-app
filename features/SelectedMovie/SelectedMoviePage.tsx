@@ -33,7 +33,7 @@ export default function SelectedMoviePage({ id }: { id: string }) {
   return (
     <div>
       <HeroDetail movie={movieInfo} />
-      <GridRelatedMovies movies={movieInfo && movieInfo.related_movies} />
+      <GridRelatedMovies classname="-mt-20" movies={movieInfo && movieInfo.related_movies} />
     </div>
   )
 }
