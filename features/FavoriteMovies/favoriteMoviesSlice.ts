@@ -1,5 +1,8 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit'
+
 import type { Movie } from '@/types/movies'
+
+import { STORAGE_FAVORITES_KEY } from '@/config/constants'
 
 interface FavoriteMoviesState {
   movies: {
@@ -8,25 +11,22 @@ interface FavoriteMoviesState {
 }
 
 const getFavorites = (): FavoriteMoviesState => {
-  const favorites = global.localStorage?.getItem('verflix_favorites')
+  const favorites = global.localStorage?.getItem(STORAGE_FAVORITES_KEY)
   return favorites ? JSON.parse(favorites) : { movies: {} }
 }
 const setFavorites = (favorites: FavoriteMoviesState) => {
-  global.localStorage?.setItem('verflix_favorites', JSON.stringify(favorites))
+  global.localStorage?.setItem(STORAGE_FAVORITES_KEY, JSON.stringify(favorites))
 }
 
 const initialState: FavoriteMoviesState = {
   movies: getFavorites().movies
 }
 
-const favoritePage = createSlice({
+const favoriteMoviesSlice = createSlice({
   name: 'favoriteMovies',
   initialState: initialState,
   reducers: {
-    toggleFavorite: (
-      state: FavoriteMoviesState,
-      { payload }: PayloadAction<Movie>
-    ) => {
+    toggleFavorite: (state: FavoriteMoviesState, { payload }: PayloadAction<Movie>) => {
       if (state.movies[payload.id]) {
         delete state.movies[payload.id]
       } else {
@@ -37,6 +37,6 @@ const favoritePage = createSlice({
   }
 })
 
-export const { toggleFavorite } = favoritePage.actions
+export const { toggleFavorite } = favoriteMoviesSlice.actions
 
-export default favoritePage.reducer
+export default favoriteMoviesSlice.reducer

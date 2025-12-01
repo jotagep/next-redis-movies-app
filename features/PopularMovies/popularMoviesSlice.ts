@@ -1,10 +1,12 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit'
 
-import { getPopularMovies } from '@/lib/moviesApi'
-import type { Movie } from '@/types/movies'
-import type { AppThunk } from '@/store/store'
+import { moviesApi } from '@/lib/moviesApi'
 
-interface PopularMoviesState {
+import { AppThunk } from '@/store/store'
+
+import type { Movie } from '@/types/movies'
+
+export interface PopularMoviesState {
   movies: Movie[]
   isLoading: boolean
   error: string | null
@@ -22,23 +24,17 @@ function startLoading(state: PopularMoviesState) {
   state.isLoading = true
 }
 
-function loadingFailed(
-  state: PopularMoviesState,
-  { payload }: PayloadAction<string>
-) {
+function loadingFailed(state: PopularMoviesState, { payload }: PayloadAction<string>) {
   state.isLoading = false
   state.error = payload
 }
 
-const moviePage = createSlice({
+const popularMoviesSlice = createSlice({
   name: 'popularMovies',
   initialState: initialState,
   reducers: {
     getPopularMoviesStart: startLoading,
-    getPopularMoviesSuccess: (
-      state: PopularMoviesState,
-      { payload }: PayloadAction<Movie[]>
-    ) => {
+    getPopularMoviesSuccess: (state: PopularMoviesState, { payload }: PayloadAction<Movie[]>) => {
       state.isLoading = false
       state.movies = [...state.movies, ...payload]
       state.pagesLoaded = state.pagesLoaded + 1
@@ -48,20 +44,16 @@ const moviePage = createSlice({
   }
 })
 
-export const {
-  getPopularMoviesStart,
-  getPopularMoviesSuccess,
-  getPopularMoviesFailure
-} = moviePage.actions
+export const { getPopularMoviesStart, getPopularMoviesSuccess, getPopularMoviesFailure } = popularMoviesSlice.actions
 
-export default moviePage.reducer
+export default popularMoviesSlice.reducer
 
 export const fetchPopularMovies =
   (page: number = 1): AppThunk =>
   async (dispatch) => {
     try {
       dispatch(getPopularMoviesStart())
-      const movies = await getPopularMovies(page)
+      const movies = await moviesApi.getPopularMovies(page)
       dispatch(getPopularMoviesSuccess(movies))
     } catch (error: any) {
       dispatch(getPopularMoviesFailure(error.message))

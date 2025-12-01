@@ -1,17 +1,17 @@
 import React, { useEffect } from 'react'
 import { useSelector } from 'react-redux'
+
+import Spinner from '@/components/Spinner/Spinner'
+
 import { RootState } from '@/store/rootReducer'
 import { useAppDispatch } from '@/store/store'
 
-import Spinner from '@/components/Spinner'
+import GridRelatedMovies from './GridRelatedMovies'
 import HeroDetail from './HeroDetail'
 import { fetchDetailMovie } from './selectedMoviesSlice'
-import GridRelatedMovies from './GridRelatedMovies'
 
 export default function SelectedMoviePage({ id }: { id: string }) {
-  const { movies, isLoading } = useSelector(
-    (state: RootState) => state.selectedMovie
-  )
+  const { movies, isLoading } = useSelector((state: RootState) => state.selectedMovie)
 
   const dispatch = useAppDispatch()
 
@@ -25,7 +25,7 @@ export default function SelectedMoviePage({ id }: { id: string }) {
 
   if (!movieInfo || isLoading)
     return (
-      <div className="flex items-center justify-center min-h-screen w-full">
+      <div className="flex min-h-screen w-full items-center justify-center">
         <Spinner />
       </div>
     )
@@ -33,7 +33,7 @@ export default function SelectedMoviePage({ id }: { id: string }) {
   return (
     <div>
       <HeroDetail movie={movieInfo} />
-      <GridRelatedMovies movies={movieInfo && movieInfo.related_movies} />
+      <GridRelatedMovies classname="-mt-20" movies={movieInfo && movieInfo.related_movies} />
     </div>
   )
 }

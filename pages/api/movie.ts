@@ -1,14 +1,11 @@
 import type { NextApiRequest, NextApiResponse } from 'next'
 
-import { getCastMovie, getDetailMovie, getRelatedMovies } from '@/lib/moviesApi'
+import { moviesApi } from '@/lib/moviesApi'
 import redis, { validateRedisConnection } from '@/lib/redis'
 
 import type { MovieInfo } from '@/types/movies'
 
-export default async function handler(
-  req: NextApiRequest,
-  res: NextApiResponse<MovieInfo | void>
-) {
+export default async function handler(req: NextApiRequest, res: NextApiResponse<MovieInfo | void>) {
   const { id } = req.query as { id: string }
   const idNumber = parseInt(id)
 
@@ -33,9 +30,9 @@ export default async function handler(
   }
 
   const [movie, cast, related] = await Promise.all([
-    getDetailMovie(idNumber),
-    getCastMovie(idNumber),
-    getRelatedMovies(idNumber)
+    moviesApi.getDetailMovie(idNumber),
+    moviesApi.getCastMovie(idNumber),
+    moviesApi.getRelatedMovies(idNumber)
   ])
 
   const movieInfo: MovieInfo = {

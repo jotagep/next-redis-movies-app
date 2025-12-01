@@ -1,5 +1,5 @@
 {
-  "extends": "next/core-web-vitals",
+  "extends": ["next/core-web-vitals", "plugin:storybook/recommended"],
   "plugins": ["simple-import-sort"],
   "rules": {
     "import/first": "error",
@@ -22,9 +22,10 @@
           ["^(@/store)(/.*|$)"],
           ["^(@/types)(/.*|$)"],
           ["^(@/utils)(/.*|$)"],
-
           // Styles
           ["^(@/styles)(/.*|$)"],
+          // Mocks
+          ["^(@/mocks)(/.*|$)"],
           // Side effect imports.
           ["^\\u0000"],
           // Parent imports. Put `..` last.
@@ -37,5 +38,13 @@
       }
     ],
     "simple-import-sort/exports": "error"
-  }
+  },
+  "overrides": [
+    {
+      "files": ["**/*.test.ts", "**/*.test.tsx", "**/*.spec.ts", "**/*.spec.tsx"],
+      "rules": {
+        "@next/next/no-img-element": "off"
+      }
+    }
+  ]
 }

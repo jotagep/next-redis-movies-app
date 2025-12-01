@@ -1,29 +1,24 @@
 import React from 'react'
 import { useDebouncedCallback } from 'use-debounce'
+
 import { useAppDispatch } from '@/store/store'
-import {
-  fetchSearchMovie,
-  setEmptyMovies,
-  setFocused
-} from '../searchMoviesSlice'
+
 import SearchIcon from '../SearchIcon'
+import { fetchSearchMovie, setEmptyMovies, setFocused } from '../searchMoviesSlice'
 
 import style from './style.module.scss'
 
 export default function SearchBar() {
   const dispatch = useAppDispatch()
 
-  const handleOnChange = useDebouncedCallback(
-    (e: React.ChangeEvent<HTMLInputElement>) => {
-      const text = e.target.value
-      if (text.length > 1) {
-        dispatch(fetchSearchMovie(text))
-      } else {
-        dispatch(setEmptyMovies())
-      }
-    },
-    200
-  )
+  const handleOnChange = useDebouncedCallback((e: React.ChangeEvent<HTMLInputElement>) => {
+    const text = e.target.value
+    if (text.length > 1) {
+      dispatch(fetchSearchMovie(text))
+    } else {
+      dispatch(setEmptyMovies())
+    }
+  }, 200)
 
   const handleOnFocus = () => {
     dispatch(setFocused(true))
@@ -40,7 +35,7 @@ export default function SearchBar() {
       </div>
       <div className="flex-1">
         <input
-          className="w-full py-2 pl-10 bg-transparent"
+          className="w-full bg-transparent py-2 pl-10"
           type="text"
           placeholder="Search a movie..."
           onFocus={handleOnFocus}

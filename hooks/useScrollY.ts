@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react'
+import { useEffect, useRef, useState } from 'react'
 
 type DirectionScroll = 'down' | 'up' | null
 
@@ -9,38 +9,42 @@ export type ScrollY = {
 
 const useScrollY = () => {
   const [scrollPosition, setScrollPosition] = useState<ScrollY>({
-    y: 0,
+    y: typeof window !== 'undefined' ? window.scrollY : 0,
     direction: null
   })
 
+  const lastY = useRef(0)
+  const ticking = useRef(false)
+
   useEffect(() => {
-    let lastKnownScrollPosition = 0
-    let directionKnown: DirectionScroll = null
-    let ticking = false
-
     const handleScroll = () => {
-      directionKnown = lastKnownScrollPosition <= window.scrollY ? 'down' : 'up'
-      lastKnownScrollPosition = window.scrollY
+      const currentY = window.scrollY
+      let direction: DirectionScroll = null
 
-      if (!ticking) {
-        window.requestAnimationFrame(function () {
-          setScrollPosition({
-            y: lastKnownScrollPosition,
-            direction: directionKnown
+      if (currentY > lastY.current) direction = 'down'
+      else if (currentY < lastY.current) direction = 'up'
+
+      lastY.current = currentY
+
+      if (!ticking.current) {
+        window.requestAnimationFrame(() => {
+          setScrollPosition((prev) => {
+            if (prev.y === currentY) {
+              return prev
+            }
+            return { y: currentY, direction }
           })
-          ticking = false
+          ticking.current = false
         })
-
-        ticking = true
+        ticking.current = true
       }
     }
-    window.addEventListener('scroll', handleScroll)
 
-    return () => {
-      window.removeEventListener('scroll', handleScroll)
-    }
+    window.addEventListener('scroll', handleScroll, { passive: true })
+    return () => window.removeEventListener('scroll', handleScroll)
   }, [])
 
   return scrollPosition
 }
+
 export default useScrollY

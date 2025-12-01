@@ -1,11 +1,8 @@
-const defaultTheme = require('tailwindcss/defaultTheme')
+import type { Config } from 'tailwindcss'
+import defaultTheme from 'tailwindcss/defaultTheme'
 
-module.exports = {
-  purge: [
-    'pages/**/*.{js,jsx,ts,tsx}',
-    'components/**/*.{js,jsx,ts,tsx}',
-    'features/**/*.{js,jsx,ts,tsx}'
-  ],
+export const config: Config = {
+  content: ['pages/**/*.{js,jsx,ts,tsx}', 'components/**/*.{js,jsx,ts,tsx}', 'features/**/*.{js,jsx,ts,tsx}'],
   theme: {
     fontFamily: {
       lead: ['var(--font-bebas-neue)', 'Arial', 'sans-serif'],
@@ -24,3 +21,5 @@ module.exports = {
   variants: {},
   plugins: []
 }
+
+export default config

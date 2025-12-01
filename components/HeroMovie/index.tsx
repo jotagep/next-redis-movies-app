@@ -1,10 +1,10 @@
 import React from 'react'
 
-import Container from '@/components/Container'
-import MovieImage from '@/components/MovieImage'
-import Spinner from '@/components/Spinner'
+import Container from '@/components/Container/Container'
+import MovieImage from '@/components/MovieImage/MovieImage'
+import Spinner from '@/components/Spinner/Spinner'
 
-import { getImage } from '@/lib/moviesApi'
+import { moviesApi } from '@/lib/moviesApi'
 
 import { Movie } from '@/types/movies'
 
@@ -16,21 +16,17 @@ type Props = {
   classContainer?: string
 }
 
-export default function HeroMovie({
-  movie,
-  children,
-  classContainer = ''
-}: Props) {
+export default function HeroMovie({ movie, children, classContainer = '' }: Props) {
   if (!movie) {
     return <Spinner />
   }
 
   return (
-    <div className={`${style.hero} pt-24 flex items-center h-screen relative`}>
+    <div className={`${style.hero} relative flex h-screen items-center pt-24`}>
       <MovieImage
         fill={true}
         sizes="100vw"
-        src={getImage(movie.backdrop_path, 'original')}
+        src={moviesApi.getImage(movie.backdrop_path, 'original')}
         alt={`Background from ${movie.title}`}
         className={style.image}
       />

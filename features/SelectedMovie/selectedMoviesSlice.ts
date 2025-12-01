@@ -1,7 +1,9 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit'
 
-import { fetchData } from '@/lib/moviesApi'
+import { verflixApi } from '@/lib/api'
+
 import type { AppThunk } from '@/store/store'
+
 import { MovieInfo } from '@/types/movies'
 
 interface SelectedMoviesState {
@@ -22,23 +24,17 @@ function startLoading(state: SelectedMoviesState) {
   state.isLoading = true
 }
 
-function loadingFailed(
-  state: SelectedMoviesState,
-  { payload }: PayloadAction<string>
-) {
+function loadingFailed(state: SelectedMoviesState, { payload }: PayloadAction<string>) {
   state.isLoading = false
   state.error = payload
 }
 
-const selectedMovies = createSlice({
+const selectedMoviesSlice = createSlice({
   name: 'selectedMovies',
   initialState: initialState,
   reducers: {
     getSelectedMovieStart: startLoading,
-    getSelectedMovieSuccess: (
-      state: SelectedMoviesState,
-      { payload }: PayloadAction<MovieInfo>
-    ) => {
+    getSelectedMovieSuccess: (state: SelectedMoviesState, { payload }: PayloadAction<MovieInfo>) => {
       state.isLoading = false
       state.movies = { ...state.movies, [payload.id]: payload }
       state.error = null
@@ -47,20 +43,16 @@ const selectedMovies = createSlice({
   }
 })
 
-export const {
-  getSelectedMovieStart,
-  getSelectedMovieSuccess,
-  getSelectedMovieFailure
-} = selectedMovies.actions
+export const { getSelectedMovieStart, getSelectedMovieSuccess, getSelectedMovieFailure } = selectedMoviesSlice.actions
 
-export default selectedMovies.reducer
+export default selectedMoviesSlice.reducer
 
 export const fetchDetailMovie =
   (id: number): AppThunk =>
   async (dispatch) => {
     try {
       dispatch(getSelectedMovieStart())
-      const movieInfo = await fetchData<MovieInfo>('/api/movie?id=' + id)
+      const movieInfo = await verflixApi.getMovieInfo(id)
       dispatch(getSelectedMovieSuccess(movieInfo))
     } catch (error: any) {
       dispatch(getSelectedMovieFailure(error.message))

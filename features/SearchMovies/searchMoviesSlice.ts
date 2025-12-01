@@ -1,7 +1,9 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit'
 
-import { getSearchMovie } from '@/lib/moviesApi'
+import { moviesApi } from '@/lib/moviesApi'
+
 import { AppThunk } from '@/store/store'
+
 import { Movie } from '@/types/movies'
 
 interface SearchMovieState {
@@ -22,32 +24,23 @@ function startLoading(state: SearchMovieState) {
   state.isLoading = true
 }
 
-function loadingFailed(
-  state: SearchMovieState,
-  { payload }: PayloadAction<string>
-) {
+function loadingFailed(state: SearchMovieState, { payload }: PayloadAction<string>) {
   state.isLoading = false
   state.error = payload
 }
 
-const searchMovies = createSlice({
+const searchMoviesSlice = createSlice({
   name: 'searchMovies',
   initialState: initialState,
   reducers: {
     getSearchMovieStart: startLoading,
-    setFocused: (
-      state: SearchMovieState,
-      { payload }: PayloadAction<boolean>
-    ) => {
+    setFocused: (state: SearchMovieState, { payload }: PayloadAction<boolean>) => {
       state.isFocused = payload
     },
     setEmptyMovies: (state: SearchMovieState) => {
       state.movies = []
     },
-    getSearchMovieSuccess: (
-      state: SearchMovieState,
-      { payload }: PayloadAction<Movie[]>
-    ) => {
+    getSearchMovieSuccess: (state: SearchMovieState, { payload }: PayloadAction<Movie[]>) => {
       state.isLoading = false
       state.movies = payload
       state.error = null
@@ -56,22 +49,17 @@ const searchMovies = createSlice({
   }
 })
 
-export const {
-  getSearchMovieStart,
-  setFocused,
-  setEmptyMovies,
-  getSearchMovieSuccess,
-  getSearchMovieFailure
-} = searchMovies.actions
+export const { getSearchMovieStart, setFocused, setEmptyMovies, getSearchMovieSuccess, getSearchMovieFailure } =
+  searchMoviesSlice.actions
 
-export default searchMovies.reducer
+export default searchMoviesSlice.reducer
 
 export const fetchSearchMovie =
   (text: string): AppThunk =>
   async (dispatch) => {
     try {
       dispatch(getSearchMovieStart())
-      const movies = await getSearchMovie(text)
+      const movies = await moviesApi.getSearchMovie(text)
       dispatch(getSearchMovieSuccess(movies))
     } catch (error: any) {
       dispatch(getSearchMovieFailure(error.message))

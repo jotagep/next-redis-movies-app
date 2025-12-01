@@ -1,24 +1,23 @@
 import React from 'react'
 import Link from 'next/link'
 
-import MovieImage from '@/components/MovieImage'
-import RatingBox from '@/components/RatingBox'
-import Spinner from '@/components/Spinner'
+import MovieImage from '@/components/MovieImage/MovieImage'
+import RatingBox from '@/components/RatingBox/RatingBox'
+import Spinner from '@/components/Spinner/Spinner'
 
 import FavoriteBox from '@/features/FavoriteMovies/FavoriteBox'
 
-import { getImage } from '@/lib/moviesApi'
+import { moviesApi } from '@/lib/moviesApi'
 
 import type { Movie } from '@/types/movies'
 
 import style from './style.module.scss'
 
-type Props = {
+type CardMovieProps = {
   movie: Movie
 }
 
-export default function CardMovie({ movie }: Props) {
-  // Skeleton card
+export default function CardMovie({ movie }: CardMovieProps) {
   if (!movie) return <Spinner />
 
   return (
@@ -29,7 +28,7 @@ export default function CardMovie({ movie }: Props) {
         <MovieImage
           fill={true}
           sizes="(max-width: 768px) 100vw, 25vw"
-          src={getImage(movie.backdrop_path, 'w500')}
+          src={moviesApi.getImage(movie.backdrop_path, 'w500')}
           alt={movie.title}
           className={style.image}
         />
@@ -37,7 +36,7 @@ export default function CardMovie({ movie }: Props) {
         <MovieImage
           fill={true}
           sizes="(max-width: 768px) 100vw, 25vw"
-          src={getImage(movie.poster_path, 'w500')}
+          src={moviesApi.getImage(movie.poster_path, 'w500')}
           alt={movie.title}
           className={style.image}
         />
