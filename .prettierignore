@@ -1,0 +1,23 @@
+# Configuración
+*.rc
+*.rc.json
+*.rc.yaml
+*.rc.yml
+*.config.js
+*.config.cjs
+*.config.mjs
+*.config.ts
+*.config.json
+*.yml
+*.yaml
+*.lintstagedrc
+
+# JSON específicos
+tsconfig.json
+package-lock.json
+pnpm-lock.yaml
+
+# Build
+dist
+.next
+storybook-static

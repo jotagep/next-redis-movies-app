@@ -4,7 +4,5 @@
     "prettier --write",
     "jest --bail --findRelatedTests --coverage=false --passWithNoTests"
   ],
-  "*.{css,scss,md,json}": [
-    "prettier --write"
-  ]
+  "*.{css,scss,md,json}": ["prettier --write"]
 }
