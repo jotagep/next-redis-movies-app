@@ -1,6 +1,6 @@
-import SelectedMoviePage from './SelectedMoviePage'
-
 import { mockMovieInfo } from '@/mocks/movies'
+
+import SelectedMoviePage from './SelectedMoviePage'
 
 export default {
   title: 'Features/SelectedMovie/SelectedMoviePage',

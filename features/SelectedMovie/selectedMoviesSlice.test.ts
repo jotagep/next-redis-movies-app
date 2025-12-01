@@ -1,13 +1,13 @@
 import { verflixApi } from '@/lib/api'
 
+import { mockMovieInfo } from '@/mocks/movies'
+
 import selectedMoviesReducer, {
   fetchDetailMovie,
   getSelectedMovieFailure,
   getSelectedMovieStart,
   getSelectedMovieSuccess
 } from './selectedMoviesSlice'
-
-import { mockMovieInfo } from '@/mocks/movies'
 
 jest.mock('@/lib/api', () => ({
   verflixApi: {

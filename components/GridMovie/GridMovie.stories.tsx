@@ -1,8 +1,8 @@
 import type { Meta, StoryObj } from '@storybook/nextjs'
 
-import GridMovie from './GridMovie'
-
 import { mockMoviesList } from '@/mocks/movies'
+
+import GridMovie from './GridMovie'
 
 const meta = {
   title: 'UI/Organisms/GridMovie',

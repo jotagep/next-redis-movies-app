@@ -5,10 +5,10 @@ import { fireEvent, render } from '@testing-library/react'
 
 import type { Movie } from '@/types/movies'
 
+import { mockMovieDetailed } from '@/mocks/movies'
+
 import FavoriteBox from './FavoriteBox'
 import favoriteMoviesReducer from './favoriteMoviesSlice'
-
-import { mockMovieDetailed } from '@/mocks/movies'
 
 const createMockStore = (initialFavorites: { [key: number]: Movie } = {}) => {
   return configureStore({

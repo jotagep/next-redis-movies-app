@@ -1,8 +1,8 @@
 import React from 'react'
 
-import HeroDetail from './index'
-
 import { mockMovieInfo } from '@/mocks/movies'
+
+import HeroDetail from './index'
 
 export default {
   title: 'Features/SelectedMovie/HeroDetail',

@@ -1,6 +1,6 @@
-import HeroPopularMovie from './HeroPopularMovie'
-
 import { mockMoviesList } from '@/mocks/movies'
+
+import HeroPopularMovie from './HeroPopularMovie'
 
 export default {
   title: 'Features/PopularMovies/HeroPopularMovie',

@@ -1,8 +1,8 @@
 import type { Meta, StoryObj } from '@storybook/nextjs'
 
-import HeroMovie from './index'
-
 import { mockMovieDetailed } from '@/mocks/movies'
+
+import HeroMovie from './index'
 
 const meta = {
   title: 'UI/Organisms/HeroMovie',

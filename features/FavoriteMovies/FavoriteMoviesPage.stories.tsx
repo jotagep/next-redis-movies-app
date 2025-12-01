@@ -1,9 +1,9 @@
 import React from 'react'
 import { Provider } from 'react-redux'
 
-import FavoriteMoviesPage from './FavoriteMoviesPage'
-
 import { mockMoviesList } from '@/mocks/movies'
+
+import FavoriteMoviesPage from './FavoriteMoviesPage'
 
 export default {
   title: 'Features/FavoriteMovies/FavoriteMoviesPage',

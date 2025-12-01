@@ -2,9 +2,9 @@ import React from 'react'
 import * as reactRedux from 'react-redux'
 import { render, screen } from '@testing-library/react'
 
-import SelectedMoviePage from './SelectedMoviePage'
-
 import { mockMovieInfo } from '@/mocks/movies'
+
+import SelectedMoviePage from './SelectedMoviePage'
 
 jest.mock('@/components/Spinner/Spinner', () => {
   return function Spinner() {

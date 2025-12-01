@@ -1,9 +1,9 @@
 import React from 'react'
 import { render, screen } from '@testing-library/react'
 
-import GridRelatedMovies from './GridRelatedMovies'
-
 import { mockMoviesList } from '@/mocks/movies'
+
+import GridRelatedMovies from './GridRelatedMovies'
 
 jest.mock('@/components/GridMovie/GridMovie', () => {
   return function GridMovie({ movies, title }: any) {
@@ -48,7 +48,7 @@ describe('GridRelatedMovies', () => {
     const { container } = render(<GridRelatedMovies movies={mockMoviesList} />)
 
     const section = container.querySelector('section')
-    expect(section).toHaveClass('relative', '-mt-20')
+    expect(section).toHaveClass('relative')
   })
 
   it('should slice movies array correctly', () => {

@@ -3,10 +3,10 @@ import { Provider } from 'react-redux'
 import { configureStore } from '@reduxjs/toolkit'
 import { render, screen } from '@testing-library/react'
 
+import { mockMovieDetailed } from '@/mocks/movies'
+
 import HeroPopularMovie from './HeroPopularMovie'
 import popularMoviesReducer from './popularMoviesSlice'
-
-import { mockMovieDetailed } from '@/mocks/movies'
 
 // Mock the components
 jest.mock('@/components/HeroMovie', () => {

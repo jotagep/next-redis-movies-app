@@ -1,9 +1,9 @@
 import type { Meta, StoryObj } from '@storybook/nextjs'
 import { action } from 'storybook/actions'
 
-import FavoriteBox from './FavoriteBox'
-
 import { mockMoviesList } from '@/mocks/movies'
+
+import FavoriteBox from './FavoriteBox'
 
 type Story = StoryObj<typeof FavoriteBox>
 

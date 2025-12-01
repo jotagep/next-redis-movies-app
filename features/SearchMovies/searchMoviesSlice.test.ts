@@ -1,5 +1,7 @@
 import { moviesApi } from '@/lib/moviesApi'
 
+import { mockMoviesList } from '@/mocks/movies'
+
 import searchMoviesReducer, {
   fetchSearchMovie,
   getSearchMovieFailure,
@@ -8,8 +10,6 @@ import searchMoviesReducer, {
   setEmptyMovies,
   setFocused
 } from './searchMoviesSlice'
-
-import { mockMoviesList } from '@/mocks/movies'
 
 jest.mock('@/lib/moviesApi', () => ({
   moviesApi: {

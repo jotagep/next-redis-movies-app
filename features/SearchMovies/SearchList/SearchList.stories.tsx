@@ -1,6 +1,6 @@
-import SearchList from './index'
-
 import { mockMoviesList } from '@/mocks/movies'
+
+import SearchList from './index'
 
 export default {
   title: 'Features/SearchMovies/SearchList',

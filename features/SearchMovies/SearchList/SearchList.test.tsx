@@ -2,9 +2,9 @@ import React from 'react'
 import * as reactRedux from 'react-redux'
 import { render, screen } from '@testing-library/react'
 
-import SearchList from './index'
-
 import { mockMoviesList } from '@/mocks/movies'
+
+import SearchList from './index'
 
 jest.mock('next/link', () => {
   return function Link({ children, href, className }: any) {

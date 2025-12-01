@@ -1,6 +1,6 @@
-import GridPopularMovies from './GridPopularMovies'
-
 import { mockMoviesList } from '@/mocks/movies'
+
+import GridPopularMovies from './GridPopularMovies'
 
 export default {
   title: 'Features/PopularMovies/GridPopularMovies',

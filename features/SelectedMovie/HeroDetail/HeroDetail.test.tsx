@@ -1,9 +1,9 @@
 import React from 'react'
 import { render, screen } from '@testing-library/react'
 
-import HeroDetail from './index'
-
 import { mockMovieInfo } from '@/mocks/movies'
+
+import HeroDetail from './index'
 
 jest.mock('@/components/HeroMovie', () => {
   return function HeroMovie({ movie, children, classContainer }: any) {
