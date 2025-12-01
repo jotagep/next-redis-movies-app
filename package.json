@@ -14,6 +14,8 @@
     "test": "jest",
     "test:watch": "jest --watch",
     "test:coverage": "jest --coverage",
+    "e2e": "playwright test",
+    "e2e:headed": "playwright test --headed",
     "prepare": "husky",
     "storybook": "storybook dev -p 6006",
     "build-storybook": "storybook build",
@@ -32,6 +34,7 @@
   "devDependencies": {
     "@commitlint/cli": "^19.3.0",
     "@commitlint/config-conventional": "^19.2.2",
+    "@playwright/test": "^1.57.0",
     "@storybook/addon-a11y": "^10.0.8",
     "@storybook/addon-docs": "^10.1.0",
     "@storybook/nextjs": "^10.0.8",

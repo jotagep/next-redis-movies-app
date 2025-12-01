@@ -1,8 +1,10 @@
 import type { Movie } from '@/types/movies'
 
+import { mockMoviesList } from '@/mocks/movies'
+
 import favoriteMoviesReducer, { toggleFavorite } from './favoriteMoviesSlice'
 
-import { mockMoviesList } from '@/mocks/movies'
+import { STORAGE_FAVORITES_KEY } from '@/config/constants'
 
 describe('favoriteMoviesSlice', () => {
   let mockGetItem: jest.SpyInstance
@@ -42,7 +44,7 @@ describe('favoriteMoviesSlice', () => {
         const freshReducer = require('./favoriteMoviesSlice').default
         const state = freshReducer(undefined, { type: 'unknown' })
 
-        expect(mockGetItem).toHaveBeenCalledWith('verflix_favorites')
+        expect(mockGetItem).toHaveBeenCalledWith(STORAGE_FAVORITES_KEY)
       })
     })
   })
@@ -53,7 +55,7 @@ describe('favoriteMoviesSlice', () => {
       const state = favoriteMoviesReducer(initialState, toggleFavorite(mockMoviesList[0]))
 
       expect(state.movies[mockMoviesList[0].id]).toEqual(mockMoviesList[0])
-      expect(mockSetItem).toHaveBeenCalledWith('verflix_favorites', JSON.stringify(state))
+      expect(mockSetItem).toHaveBeenCalledWith(STORAGE_FAVORITES_KEY, JSON.stringify(state))
     })
 
     it('should remove a movie from favorites when it already exists', () => {
@@ -65,7 +67,7 @@ describe('favoriteMoviesSlice', () => {
       const state = favoriteMoviesReducer(initialState, toggleFavorite(mockMoviesList[0]))
 
       expect(state.movies[mockMoviesList[0].id]).toBeUndefined()
-      expect(mockSetItem).toHaveBeenCalledWith('verflix_favorites', JSON.stringify(state))
+      expect(mockSetItem).toHaveBeenCalledWith(STORAGE_FAVORITES_KEY, JSON.stringify(state))
     })
 
     it('should add multiple movies to favorites', () => {
@@ -113,7 +115,7 @@ describe('favoriteMoviesSlice', () => {
       favoriteMoviesReducer(initialState, toggleFavorite(mockMoviesList[0]))
 
       expect(mockSetItem).toHaveBeenCalledTimes(1)
-      expect(mockSetItem).toHaveBeenCalledWith('verflix_favorites', expect.any(String))
+      expect(mockSetItem).toHaveBeenCalledWith(STORAGE_FAVORITES_KEY, expect.any(String))
     })
 
     it('should persist correct data structure to localStorage', () => {
@@ -121,7 +123,7 @@ describe('favoriteMoviesSlice', () => {
       const state = favoriteMoviesReducer(initialState, toggleFavorite(mockMoviesList[0]))
 
       const expectedData = JSON.stringify(state)
-      expect(mockSetItem).toHaveBeenCalledWith('verflix_favorites', expectedData)
+      expect(mockSetItem).toHaveBeenCalledWith(STORAGE_FAVORITES_KEY, expectedData)
 
       const parsedData = JSON.parse(expectedData)
       expect(parsedData).toEqual(state)

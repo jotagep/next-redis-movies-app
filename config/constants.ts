@@ -1,3 +1,5 @@
+export const STORAGE_FAVORITES_KEY = 'verflix_favorites'
+
 export const TOPBAR_ANIMATION_HEIGHT = 150
 
 export const FILM_RATES = {

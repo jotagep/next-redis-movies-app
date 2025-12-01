@@ -2,6 +2,8 @@ import { createSlice, PayloadAction } from '@reduxjs/toolkit'
 
 import type { Movie } from '@/types/movies'
 
+import { STORAGE_FAVORITES_KEY } from '@/config/constants'
+
 interface FavoriteMoviesState {
   movies: {
     [idMovie: number]: Movie
@@ -9,11 +11,11 @@ interface FavoriteMoviesState {
 }
 
 const getFavorites = (): FavoriteMoviesState => {
-  const favorites = global.localStorage?.getItem('verflix_favorites')
+  const favorites = global.localStorage?.getItem(STORAGE_FAVORITES_KEY)
   return favorites ? JSON.parse(favorites) : { movies: {} }
 }
 const setFavorites = (favorites: FavoriteMoviesState) => {
-  global.localStorage?.setItem('verflix_favorites', JSON.stringify(favorites))
+  global.localStorage?.setItem(STORAGE_FAVORITES_KEY, JSON.stringify(favorites))
 }
 
 const initialState: FavoriteMoviesState = {

@@ -24,6 +24,8 @@
           ["^(@/utils)(/.*|$)"],
           // Styles
           ["^(@/styles)(/.*|$)"],
+          // Mocks
+          ["^(@/mocks)(/.*|$)"],
           // Side effect imports.
           ["^\\u0000"],
           // Parent imports. Put `..` last.

@@ -23,7 +23,7 @@ const customJestConfig = {
     '!**/*.d.ts',
     '!**/node_modules/**',
     '!**/__tests__/**',
-    '!**/*.stories.{js,jsx,ts,tsx}',
+    '!**/*.stories.{js,jsx,ts,tsx}'
   ]
 }
 
