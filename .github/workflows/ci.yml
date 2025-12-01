@@ -40,6 +40,8 @@ jobs:
 
       - name: Unit tests
         run: npm test
+        env:
+          NEXT_PUBLIC_MOVIES_API_KEY: "mock_api_key"
 
   e2e:
     name: Playwright E2E
